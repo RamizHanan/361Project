@@ -1,1 +1,1 @@
-C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\COMPE361_Project.csproj;x86
+C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\COMPE361_Project.csproj;x86

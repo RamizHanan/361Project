@@ -27506,11 +27506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Drowz\\Desktop\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Drowz\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "projectName": "COMPE361_Project",
-      "projectPath": "C:\\Users\\Drowz\\Desktop\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectPath": "C:\\Users\\Drowz\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "packagesPath": "C:\\Users\\Drowz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Drowz\\Desktop\\COMPE361_Project\\COMPE361_Project\\obj\\",
+      "outputPath": "C:\\Users\\Drowz\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

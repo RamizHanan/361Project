@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>aaebc695-0808-444b-a811-0d5319b6021c</PackageIdentityName>
     <PackageIdentityPublisher>CN=Drowz</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>2CA7BFC08682DDC8C837B4BF25FEB63745264FABE7A1447119FAF601CB2C86C5</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>aaebc695-0808-444b-a811-0d5319b6021c_1.0.0.0_x86__ap30phy2hngfp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>aaebc695-0808-444b-a811-0d5319b6021c_ap30phy2hngfp!App</RegisteredUserModeAppID>
@@ -28,16 +28,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-17T20:06:02.383</Modified>
+      <Modified>2018-11-17T23:52:48.356</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.exe">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.exe">
       <PackagePath>entrypoint\COMPE361_Project.exe</PackagePath>
-      <Modified>2018-11-17T20:06:00.119</Modified>
+      <Modified>2018-11-17T23:52:48.003</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -495,80 +495,80 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-12T06:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\background.jpg">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\background.jpg">
       <PackagePath>Assets\background.jpg</PackagePath>
       <Modified>2018-11-17T19:47:28.865</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\profilepic.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\profilepic.png">
       <PackagePath>Assets\profilepic.png</PackagePath>
       <Modified>2018-11-17T19:47:28.868</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2018-08-29T14:17:09.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2018-11-17T19:51:39.602</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.xr.xml">
       <PackagePath>COMPE361_Project.xr.xml</PackagePath>
-      <Modified>2018-11-17T20:05:59.805</Modified>
+      <Modified>2018-11-17T23:50:26.338</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-11-17T20:05:59.850</Modified>
+      <Modified>2018-11-17T23:52:47.833</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\LoginPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
-      <Modified>2018-11-17T20:05:59.851</Modified>
+      <Modified>2018-11-17T23:52:47.833</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\HomePage.xbf">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\HomePage.xbf">
       <PackagePath>HomePage.xbf</PackagePath>
-      <Modified>2018-11-17T20:05:59.851</Modified>
+      <Modified>2018-11-17T23:52:47.834</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2018-04-20T05:01:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-11-17T20:06:01.746</Modified>
+      <Modified>2018-11-17T20:51:10.915</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Desktop\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\COMPE361_Project.exe">
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\COMPE361_Project.exe">
       <PackagePath>COMPE361_Project.exe</PackagePath>
-      <Modified>2018-11-17T20:06:02.370</Modified>
+      <Modified>2018-11-17T23:52:48.350</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

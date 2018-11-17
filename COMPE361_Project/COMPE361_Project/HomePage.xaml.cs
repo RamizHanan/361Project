@@ -23,13 +23,34 @@ namespace COMPE361_Project
     public sealed partial class HomePage : Page
     {
         bool isManager = true;
+        string Username = "John";
+        string Position = "Manager";
         public HomePage()
         {
             this.InitializeComponent();
-            if (isManager != true)
+            Menu.SelectedIndex = 0;
+            if (isManager == true)
+            {
+                Menu.Items.Remove(View_Schedule);
+                Menu.Items.Remove(Employee_Clock);
+                Menu.Items.Remove(Request_PTO);
+            }
+            else
             {
                 Menu.Items.Remove(Manage_Employees);
+                Menu.Items.Remove(Employer_Clock);
+                Menu.Items.Remove(PTO_Requests);
+                Menu.Items.Remove(Edit_Schedule);
             }
+        }
+        private void Profile(object sender, RoutedEventArgs e)
+        {
+            welcome.Text = $"Welcome Back {this.Username}";
+            position.Text = $"{this.Position}";
+        }
+        private void HomeButton(object sender, RoutedEventArgs e)
+        {
+            Menu.SelectedIndex = 0;
         }
     }
 }

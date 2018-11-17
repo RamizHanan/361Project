@@ -7,31 +7,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" NavigationCacheMode="Disabled">
-    <Pivot x:Name="Menu" HorizontalAlignment="Center" Height="1000" VerticalAlignment="Top" Width="1500" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-        <Pivot.LeftHeader>
-            <AppBarButton x:Name="HomeButton" Icon="Home"/>
-        </Pivot.LeftHeader>
-        <PivotItem x:Name="ProfilePage" Visibility="Collapsed" VerticalAlignment="Top">
-            <Flyout>
-                <TextBlock Text="Testing" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            </Flyout>
-        </PivotItem>
-        <PivotItem Header="Logout">
-        </PivotItem>
-        <PivotItem Header="Clock In/Clock Out">
-            <Grid/>
-        </PivotItem>
-        <PivotItem Header="View Schedule">
-            <Grid/>
-        </PivotItem>
-        <PivotItem Header="Work History">
-            <Grid/>
-        </PivotItem>
-        <PivotItem Header="PTO Request">
-            <Grid/>
-        </PivotItem>
-        <PivotItem x:Name="Manage_Employees" Header="Manage Employees">
-            <Grid/>
-        </PivotItem>
-    </Pivot>
+    <Viewbox Stretch="Uniform" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top">
+        <Pivot x:Name="Menu" HorizontalAlignment="Center" VerticalAlignment="Top" Height="759" Width="1138" Margin="0,0,0,0">
+            <Pivot.LeftHeader>
+                <AppBarButton Click="HomeButton" Icon="Home"/>
+            </Pivot.LeftHeader>
+            <PivotItem  Loaded ="Profile" TabIndex="0">
+                <Grid Height="553" Margin="12,0,12.4,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <TextBlock x:Name="welcome" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,138,0,0" FontSize="72"/>
+                    <TextBlock x:Name="position" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,306,0,0" FontSize="36" FontFamily="Segoe UI"/>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Logout"/>
+            <PivotItem x:Name="Employee_Clock" Header="Clock In/Clock Out"/>
+            <PivotItem x:Name="Employer_Clock" Header="Clock Records"/>
+            <PivotItem x:Name="View_Schedule" Header="View Schedule"/>
+            <PivotItem Header="Work History"/>
+            <PivotItem x:Name="Request_PTO" Header="Request PTO"/>
+            <PivotItem x:Name="PTO_Requests" Header="PTO Requests">
+                <Grid/>
+            </PivotItem>
+            <PivotItem x:Name="Manage_Employees" Header="Manage Employees"/>
+            <PivotItem x:Name="Edit_Schedule" Header="Edit Schedule">
+                <Grid/>
+            </PivotItem>
+        </Pivot>
+    </Viewbox>
 </Page>

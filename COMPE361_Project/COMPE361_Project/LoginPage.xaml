@@ -8,21 +8,17 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Viewbox Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
 
         <Grid RenderTransformOrigin="0.506,0.494" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Height="1000" VerticalAlignment="Stretch" Width="1500">
 
-            <Image Opacity="0.995" FocusVisualPrimaryBrush="{x:Null}" Stretch="Fill" Margin="0,1,0,-1" HorizontalAlignment="Center" Width="1500">
-                <Image.Source>
-                    <BitmapImage DecodePixelWidth="200" UriSource="Assets/background.jpg"/>
-                </Image.Source>
-            </Image>
-            <TextBlock Text="Password : " TextWrapping="Wrap" FontSize="36" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="483,513,0,0" HorizontalAlignment="Left"/>
+            <Image Source="Assets/background.jpg" Stretch="Fill" Margin="0,1,0,-1" HorizontalAlignment="Center" Width="1500"/>
+            <TextBlock Text="Username:" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Padding="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="483,392,0,0"/>
+            <TextBlock Text="Password :" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="483,513,0,0" HorizontalAlignment="Left"/>
             <TextBox KeyDown="EnterPress" x:Name="Username" Height="32" Width="280" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="738,408,0,0" HorizontalAlignment="Left"/>
             <PasswordBox KeyDown="EnterPress" x:Name="Password" Width="280" Padding="10,3,6,5" VerticalAlignment="Top" Margin="738,527,0,0" HorizontalAlignment="Left"/>
             <TextBlock x:Name="error" Height="35" Text="" TextWrapping="Wrap" Width="276" TextAlignment="Center" FontSize="16" VerticalAlignment="Top" Margin="738,573,0,0" HorizontalAlignment="Left"/>
-            <TextBlock Text="Username:" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Padding="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="483,392,0,0"/>
-            <Button Content="Login" Click = "Login" Height="69" Width="137" FontSize="36" Background="#FF3CAEE8" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,649,0,0"/>
+            <Button Content="Login" Click = "LoginPress" Height="69" Width="137" FontSize="36" Background="#FF3CAEE8" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,649,0,0"/>
             <ScrollBar HorizontalAlignment="Left" Height="990" Margin="1478,0,0,0" VerticalAlignment="Top" Width="22"/>
             <ScrollBar HorizontalAlignment="Center" Height="23" Margin="0,978,0,0" VerticalAlignment="Top" Width="1501"/>
         </Grid>
