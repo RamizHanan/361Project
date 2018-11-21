@@ -8,11 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
-
-        <Grid RenderTransformOrigin="0.506,0.494" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" Height="1000" VerticalAlignment="Stretch" Width="1500">
-
-            <Image Source="Assets/background.jpg" Stretch="Fill" Margin="0,1,0,-1" HorizontalAlignment="Center" Width="1500"/>
+    <Viewbox Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid>
+            <Image Source="Assets/background.jpg" Stretch="UniformToFill" Margin="0,1,0,-1" HorizontalAlignment="Stretch" Width="1500" VerticalAlignment="Stretch"/>
             <TextBlock Text="Username:" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Padding="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="483,392,0,0"/>
             <TextBlock Text="Password :" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="483,513,0,0" HorizontalAlignment="Left"/>
             <TextBox KeyDown="EnterPress" x:Name="Username" Height="32" Width="280" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="738,408,0,0" HorizontalAlignment="Left"/>

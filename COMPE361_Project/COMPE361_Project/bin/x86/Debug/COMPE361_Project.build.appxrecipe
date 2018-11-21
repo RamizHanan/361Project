@@ -412,11 +412,17 @@
     <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeClock.xbf">
+      <PackagePath>EmployeeClock.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\PayrollSystem.xbf">
+      <PackagePath>PayrollSystem.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\HomePage.xbf">
-      <PackagePath>HomePage.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\ProfilePage.xbf">
+      <PackagePath>ProfilePage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

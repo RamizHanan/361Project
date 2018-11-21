@@ -1,0 +1,43 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="COMPE361_Project.EmployeeClock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:COMPE361_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Button x:ConnectionId='2'                 Content="Clock In" HorizontalAlignment="Left" Margin="400,100,0,0" VerticalAlignment="Top" Height="100" Width="175" FontSize="36"/>
+        <Button x:ConnectionId='3'                  Content="Clock Out" FontSize="36" HorizontalAlignment="Right" Margin="0,100,400,0" VerticalAlignment="Top" Height="100" Width="178"/>
+        <TextBlock Text="Recent Clocked Times" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" FontSize="36" TextDecorations="Underline" FontFamily="Segoe UI"/>
+        <ListView x:ConnectionId='4' x:Name="Recent_Clocked_Times"                                     HorizontalAlignment="Center" Height="500" Margin="0,350,0,0" VerticalAlignment="Top" Width="1000" FontFamily="Segoe UI">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="500"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Clocked Times" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Text="Clocked Types" HorizontalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate                             >
+                    <Grid x:ConnectionId='6'>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="500"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:ConnectionId='7'                             />
+                        <TextBlock x:ConnectionId='8' Grid.Column="1"                             />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
+

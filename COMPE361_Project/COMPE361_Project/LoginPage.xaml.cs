@@ -28,9 +28,10 @@ namespace COMPE361_Project
         }
         private void LoginPress(object sender, RoutedEventArgs e)
         {
+            this.Frame.Navigate(typeof(PayrollSystem));
             if (Password.Password == "password")
             {
-                this.Frame.Navigate(typeof(HomePage));
+                this.Frame.Navigate(typeof(PayrollSystem));
             }
             else
             {
