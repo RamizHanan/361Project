@@ -117,6 +117,18 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
                 {
                     xamlType = CreateXamlType(typeIndex);
                 }
+                var userXamlType = xamlType as global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType;
+                if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+                {
+                    global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
+                    if (libXamlType != null)
+                    {
+                        if(libXamlType.IsConstructible || xamlType == null)
+                        {
+                            xamlType = libXamlType;
+                        }
+                    }
+                }
                 if (xamlType != null)
                 {
                     _xamlTypeCacheByName.Add(xamlType.FullName, xamlType);
@@ -143,6 +155,18 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
                 if(typeIndex != -1)
                 {
                     xamlType = CreateXamlType(typeIndex);
+                }
+                var userXamlType = xamlType as global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType;
+                if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
+                {
+                    global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
+                    if (libXamlType != null)
+                    {
+                        if(libXamlType.IsConstructible || xamlType == null)
+                        {
+                            xamlType = libXamlType;
+                        }
+                    }
                 }
                 if (xamlType != null)
                 {
@@ -189,17 +213,27 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
-            _typeNameTable[0] = "COMPE361_Project.LoginPage";
+            _typeNameTable = new string[9];
+            _typeNameTable[0] = "COMPE361_Project.EmployeeClock";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "COMPE361_Project.HomePage";
+            _typeNameTable[3] = "COMPE361_Project.UserData";
+            _typeNameTable[4] = "Object";
+            _typeNameTable[5] = "COMPE361_Project.EmployeeList";
+            _typeNameTable[6] = "COMPE361_Project.PayrollSystem";
+            _typeNameTable[7] = "COMPE361_Project.LoginPage";
+            _typeNameTable[8] = "COMPE361_Project.ProfilePage";
 
-            _typeTable = new global::System.Type[4];
-            _typeTable[0] = typeof(global::COMPE361_Project.LoginPage);
+            _typeTable = new global::System.Type[9];
+            _typeTable[0] = typeof(global::COMPE361_Project.EmployeeClock);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::COMPE361_Project.HomePage);
+            _typeTable[3] = typeof(global::COMPE361_Project.UserData);
+            _typeTable[4] = typeof(global::System.Object);
+            _typeTable[5] = typeof(global::COMPE361_Project.EmployeeList);
+            _typeTable[6] = typeof(global::COMPE361_Project.PayrollSystem);
+            _typeTable[7] = typeof(global::COMPE361_Project.LoginPage);
+            _typeTable[8] = typeof(global::COMPE361_Project.ProfilePage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -234,8 +268,12 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_LoginPage() { return new global::COMPE361_Project.LoginPage(); }
-        private object Activate_3_HomePage() { return new global::COMPE361_Project.HomePage(); }
+        private object Activate_0_EmployeeClock() { return new global::COMPE361_Project.EmployeeClock(); }
+        private object Activate_3_UserData() { return new global::COMPE361_Project.UserData(); }
+        private object Activate_5_EmployeeList() { return new global::COMPE361_Project.EmployeeList(); }
+        private object Activate_6_PayrollSystem() { return new global::COMPE361_Project.PayrollSystem(); }
+        private object Activate_7_LoginPage() { return new global::COMPE361_Project.LoginPage(); }
+        private object Activate_8_ProfilePage() { return new global::COMPE361_Project.ProfilePage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -247,9 +285,10 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  COMPE361_Project.LoginPage
+            case 0:   //  COMPE361_Project.EmployeeClock
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LoginPage;
+                userType.Activator = Activate_0_EmployeeClock;
+                userType.AddMemberName("Data");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -262,9 +301,41 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
                 xamlType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  COMPE361_Project.HomePage
+            case 3:   //  COMPE361_Project.UserData
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  Object
+                xamlType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  COMPE361_Project.EmployeeList
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_HomePage;
+                userType.Activator = Activate_5_EmployeeList;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  COMPE361_Project.PayrollSystem
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_PayrollSystem;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  COMPE361_Project.LoginPage
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_LoginPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  COMPE361_Project.ProfilePage
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_ProfilePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -272,12 +343,86 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
             return xamlType;
         }
 
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> _otherProviders;
+        private global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider> OtherProviders
+        {
+            get
+            {
+                if(_otherProviders == null)
+                {
+                    var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
+                    global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::Microsoft.Toolkit.Uwp.UI.Controls.Microsoft_Toolkit_Uwp_UI_Controls_DataGrid_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    _otherProviders = otherProviders;
+                }
+                return _otherProviders;
+            }
+        }
 
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForName(string typeName)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(typeName);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private global::Windows.UI.Xaml.Markup.IXamlType CheckOtherMetadataProvidersForType(global::System.Type type)
+        {
+            global::Windows.UI.Xaml.Markup.IXamlType xamlType = null;
+            global::Windows.UI.Xaml.Markup.IXamlType foundXamlType = null;
+            foreach(global::Windows.UI.Xaml.Markup.IXamlMetadataProvider xmp in OtherProviders)
+            {
+                xamlType = xmp.GetXamlType(type);
+                if(xamlType != null)
+                {
+                    if(xamlType.IsConstructible)    // not Constructible means it might be a Return Type Stub
+                    {
+                        return xamlType;
+                    }
+                    foundXamlType = xamlType;
+                }
+            }
+            return foundXamlType;
+        }
+
+        private object get_0_EmployeeClock_Data(object instance)
+        {
+            var that = (global::COMPE361_Project.EmployeeClock)instance;
+            return that.Data;
+        }
+        private void set_0_EmployeeClock_Data(object instance, object Value)
+        {
+            var that = (global::COMPE361_Project.EmployeeClock)instance;
+            that.Data = (global::COMPE361_Project.UserData)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "COMPE361_Project.EmployeeClock.Data":
+                userType = (global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType)GetXamlTypeByName("COMPE361_Project.EmployeeClock");
+                xamlMember = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlMember(this, "Data", "COMPE361_Project.UserData");
+                xamlMember.Getter = get_0_EmployeeClock_Data;
+                xamlMember.Setter = set_0_EmployeeClock_Data;
+                break;
+            }
             return xamlMember;
         }
     }

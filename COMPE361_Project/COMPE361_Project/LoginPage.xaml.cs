@@ -26,11 +26,12 @@ namespace COMPE361_Project
         {
             this.InitializeComponent();
         }
-        private void Login(object sender, RoutedEventArgs e)
+        private void LoginPress(object sender, RoutedEventArgs e)
         {
+            this.Frame.Navigate(typeof(PayrollSystem));
             if (Password.Password == "password")
             {
-                this.Frame.Navigate(typeof(HomePage));
+                this.Frame.Navigate(typeof(PayrollSystem));
             }
             else
             {
@@ -39,7 +40,7 @@ namespace COMPE361_Project
         }
         private void EnterPress(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == Windows.System.VirtualKey.Enter) this.Login(sender, e);
+            if (e.Key == Windows.System.VirtualKey.Enter) this.LoginPress(sender, e);
         }
     }
 }
