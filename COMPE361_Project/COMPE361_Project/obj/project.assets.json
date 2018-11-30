@@ -29673,28 +29673,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RMB\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\RMBonMAC\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RMB\\Desktop\\361Project-Donovan-Rowzee\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectUniqueName": "C:\\Users\\RMBonMAC\\Desktop\\361Project-master\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "projectName": "COMPE361_Project",
-      "projectPath": "C:\\Users\\RMB\\Desktop\\361Project-Donovan-Rowzee\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
-      "packagesPath": "C:\\Users\\RMB\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RMB\\Desktop\\361Project-Donovan-Rowzee\\COMPE361_Project\\COMPE361_Project\\obj\\",
+      "projectPath": "C:\\Users\\RMBonMAC\\Desktop\\361Project-master\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "packagesPath": "C:\\Users\\RMBonMAC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RMBonMAC\\Desktop\\361Project-master\\COMPE361_Project\\COMPE361_Project\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\RMB\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\RMBonMAC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "uap10.0.15063"

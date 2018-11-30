@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Company.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeClock.xaml.cs">
       <DependentUpon>EmployeeClock.xaml</DependentUpon>
     </Compile>
