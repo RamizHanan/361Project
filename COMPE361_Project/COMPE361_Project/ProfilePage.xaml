@@ -8,7 +8,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <TextBlock x:Name="Welcome" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,239,0,0"/>
-        <TextBlock x:Name="Position" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+        <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
+        <RelativePanel Background="White" Margin="275,200,275,200">
+            <TextBlock Name="Welcome" FontSize="72" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <TextBlock Name="Position" FontSize="36" RelativePanel.Below="Welcome" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        </RelativePanel>
     </Grid>
 </Page>

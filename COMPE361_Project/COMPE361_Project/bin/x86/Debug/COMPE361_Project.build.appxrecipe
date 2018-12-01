@@ -373,6 +373,9 @@
     <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\background.jpg">
       <PackagePath>Assets\background.jpg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\background2.jpg">
+      <PackagePath>Assets\background2.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\profilepic.png">
       <PackagePath>Assets\profilepic.png</PackagePath>
     </AppxPackagedFile>
@@ -423,6 +426,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\ProfilePage.xbf">
       <PackagePath>ProfilePage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\SchedulePage.xbf">
+      <PackagePath>SchedulePage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

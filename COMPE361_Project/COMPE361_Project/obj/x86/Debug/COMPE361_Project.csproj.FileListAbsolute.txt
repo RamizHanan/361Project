@@ -454,3 +454,8 @@ C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj
 C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\EmployeeClock.g.cs
 C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\EmployeeClock.xaml
 C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\EmployeeClock.xbf
+C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\SchedulePage.g.i.cs
+C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\SchedulePage.g.cs
+C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\SchedulePage.xaml
+C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\SchedulePage.xbf
+C:\Users\Drowz\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\SchedulePage.xbf

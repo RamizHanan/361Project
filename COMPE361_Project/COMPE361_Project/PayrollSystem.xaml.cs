@@ -46,5 +46,9 @@ namespace COMPE361_Project
         {
             Content.Navigate(typeof(EmployeeClock));
         }
+        private void Schedule_View(object sender, RoutedEventArgs e)
+        {
+            Content.Navigate(typeof(SchedulePage));
+        }
     }
 }

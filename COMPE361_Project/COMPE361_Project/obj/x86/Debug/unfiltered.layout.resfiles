@@ -1,5 +1,6 @@
 WinMetadata\Windows.winmd
 Assets\background.jpg
+Assets\background2.jpg
 Assets\LockScreenLogo.scale-200.png
 Assets\profilepic.png
 Assets\SplashScreen.scale-200.png
@@ -14,4 +15,5 @@ EmployeeClock.xbf
 LoginPage.xbf
 PayrollSystem.xbf
 ProfilePage.xbf
+SchedulePage.xbf
 Properties\Default.rd.xml
