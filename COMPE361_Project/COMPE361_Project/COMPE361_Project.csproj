@@ -95,8 +95,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClockLogs.xaml.cs">
+      <DependentUpon>ClockLogs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSchedule.xaml.cs">
+      <DependentUpon>EditSchedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeClock.xaml.cs">
       <DependentUpon>EmployeeClock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployees.xaml.cs">
+      <DependentUpon>ManageEmployees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePTO.xaml.cs">
+      <DependentUpon>ManagePTO.xaml</DependentUpon>
     </Compile>
     <Compile Include="PayrollSystem.xaml.cs">
       <DependentUpon>PayrollSystem.xaml</DependentUpon>
@@ -111,8 +123,8 @@
     <Compile Include="PTORequest.xaml.cs">
       <DependentUpon>PTORequest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SchedulePage.xaml.cs">
-      <DependentUpon>SchedulePage.xaml</DependentUpon>
+    <Compile Include="ViewSchedule.xaml.cs">
+      <DependentUpon>ViewSchedule.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +151,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ClockLogs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmployeeClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageEmployees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManagePTO.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,7 +187,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SchedulePage.xaml">
+    <Page Include="ViewSchedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

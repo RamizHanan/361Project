@@ -20,16 +20,11 @@ namespace COMPE361_Project
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SchedulePage : Page
+    public sealed partial class ManageEmployees : Page
     {
-        public SchedulePage()
+        public ManageEmployees()
         {
             this.InitializeComponent();
-        }
-        private void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
-        {
-
-       //     Schedule.Items.Add(new ListViewItem { Content =  });
         }
     }
 }

@@ -18,23 +18,27 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <AppBarButton Icon="Home" Width="50" Height="50" Background="Transparent" Click="HomeButton_Click"/>
-                            <Button Content="Home"  FocusVisualSecondaryBrush="Blue" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
+                            <Button Content="Home" Click="HomeButton_Click" FocusVisualSecondaryBrush="Blue" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <AppBarButton FontFamily="Segoe MDL2 Assets" Content="&#xE7E8;" Height="50" Width="50" FontSize="18"/>
+                            <AppBarButton FontFamily="Segoe MDL2 Assets" Click="LogoutButton_Click" Content="&#xE7E8;" Height="50" Width="50" FontSize="18"/>
                             <Button Background="Transparent" Click="LogoutButton_Click"  FontSize="18" VerticalAlignment="Center" Content="Logout"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <AppBarButton Click="EmployeeClock_Click" Icon="Clock" Width="50" Height="50" Background="Transparent"/>
-                            <Button Background="Transparent" Click="EmployeeClock_Click" Content="Clock In/Out" FontSize="18" VerticalAlignment="Center"/>
+                            <AppBarButton Name="Clock_Button" Click="Clock_Click" Icon="Clock" Width="50" Height="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Button Name="Clock_Title" Click="Clock_Click" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <AppBarButton Icon="Calendar" Width="50" Height="50" Background="Transparent" Click="Schedule_View"/>
-                            <Button Background="Transparent" Content="View Schedule" FontSize="18" VerticalAlignment="Center" Click="Schedule_View"/>
+                            <AppBarButton Name="Calendar_Button" Click="Schedule_Click" Icon="Calendar" Width="50" Height="50" Background="Transparent"/>
+                            <Button Name="Calendar_Title" Click="Schedule_Click" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <AppBarButton FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
-                            <Button Background="Transparent" Content="Request PTO" FontSize="18" VerticalAlignment="Center" />
+                            <AppBarButton Name="PTO_Button" Click="PTO_Click" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
+                            <Button Name="PTO_Title" Click="PTO_Click" Background="Transparent" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Name="Manage_Employees" Orientation="Horizontal">
+                            <AppBarButton Click="Manage_Employee" Icon="AddFriend" Width="50" Height="50" Background="Transparent"/>
+                            <Button Click="Manage_Employee" Background="Transparent" Content="Add/Remove Employee" FontSize="18" VerticalAlignment="Center" />
                         </StackPanel>
                     </StackPanel>
                 </SplitView.Pane>

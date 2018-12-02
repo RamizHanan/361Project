@@ -189,23 +189,33 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
-            _typeNameTable[0] = "COMPE361_Project.EmployeeClock";
+            _typeNameTable = new string[12];
+            _typeNameTable[0] = "COMPE361_Project.ClockLogs";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "COMPE361_Project.PayrollSystem";
-            _typeNameTable[4] = "COMPE361_Project.LoginPage";
-            _typeNameTable[5] = "COMPE361_Project.ProfilePage";
-            _typeNameTable[6] = "COMPE361_Project.SchedulePage";
+            _typeNameTable[3] = "COMPE361_Project.EditSchedule";
+            _typeNameTable[4] = "COMPE361_Project.EmployeeClock";
+            _typeNameTable[5] = "COMPE361_Project.ManageEmployees";
+            _typeNameTable[6] = "COMPE361_Project.ManagePTO";
+            _typeNameTable[7] = "COMPE361_Project.PayrollSystem";
+            _typeNameTable[8] = "COMPE361_Project.LoginPage";
+            _typeNameTable[9] = "COMPE361_Project.ProfilePage";
+            _typeNameTable[10] = "COMPE361_Project.PTORequest";
+            _typeNameTable[11] = "COMPE361_Project.ViewSchedule";
 
-            _typeTable = new global::System.Type[7];
-            _typeTable[0] = typeof(global::COMPE361_Project.EmployeeClock);
+            _typeTable = new global::System.Type[12];
+            _typeTable[0] = typeof(global::COMPE361_Project.ClockLogs);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::COMPE361_Project.PayrollSystem);
-            _typeTable[4] = typeof(global::COMPE361_Project.LoginPage);
-            _typeTable[5] = typeof(global::COMPE361_Project.ProfilePage);
-            _typeTable[6] = typeof(global::COMPE361_Project.SchedulePage);
+            _typeTable[3] = typeof(global::COMPE361_Project.EditSchedule);
+            _typeTable[4] = typeof(global::COMPE361_Project.EmployeeClock);
+            _typeTable[5] = typeof(global::COMPE361_Project.ManageEmployees);
+            _typeTable[6] = typeof(global::COMPE361_Project.ManagePTO);
+            _typeTable[7] = typeof(global::COMPE361_Project.PayrollSystem);
+            _typeTable[8] = typeof(global::COMPE361_Project.LoginPage);
+            _typeTable[9] = typeof(global::COMPE361_Project.ProfilePage);
+            _typeTable[10] = typeof(global::COMPE361_Project.PTORequest);
+            _typeTable[11] = typeof(global::COMPE361_Project.ViewSchedule);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -240,11 +250,16 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_EmployeeClock() { return new global::COMPE361_Project.EmployeeClock(); }
-        private object Activate_3_PayrollSystem() { return new global::COMPE361_Project.PayrollSystem(); }
-        private object Activate_4_LoginPage() { return new global::COMPE361_Project.LoginPage(); }
-        private object Activate_5_ProfilePage() { return new global::COMPE361_Project.ProfilePage(); }
-        private object Activate_6_SchedulePage() { return new global::COMPE361_Project.SchedulePage(); }
+        private object Activate_0_ClockLogs() { return new global::COMPE361_Project.ClockLogs(); }
+        private object Activate_3_EditSchedule() { return new global::COMPE361_Project.EditSchedule(); }
+        private object Activate_4_EmployeeClock() { return new global::COMPE361_Project.EmployeeClock(); }
+        private object Activate_5_ManageEmployees() { return new global::COMPE361_Project.ManageEmployees(); }
+        private object Activate_6_ManagePTO() { return new global::COMPE361_Project.ManagePTO(); }
+        private object Activate_7_PayrollSystem() { return new global::COMPE361_Project.PayrollSystem(); }
+        private object Activate_8_LoginPage() { return new global::COMPE361_Project.LoginPage(); }
+        private object Activate_9_ProfilePage() { return new global::COMPE361_Project.ProfilePage(); }
+        private object Activate_10_PTORequest() { return new global::COMPE361_Project.PTORequest(); }
+        private object Activate_11_ViewSchedule() { return new global::COMPE361_Project.ViewSchedule(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -256,9 +271,9 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  COMPE361_Project.EmployeeClock
+            case 0:   //  COMPE361_Project.ClockLogs
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_EmployeeClock;
+                userType.Activator = Activate_0_ClockLogs;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -271,30 +286,65 @@ namespace COMPE361_Project.COMPE361_Project_XamlTypeInfo
                 xamlType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  COMPE361_Project.PayrollSystem
+            case 3:   //  COMPE361_Project.EditSchedule
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_PayrollSystem;
+                userType.Activator = Activate_3_EditSchedule;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  COMPE361_Project.LoginPage
+            case 4:   //  COMPE361_Project.EmployeeClock
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_LoginPage;
+                userType.Activator = Activate_4_EmployeeClock;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  COMPE361_Project.ProfilePage
+            case 5:   //  COMPE361_Project.ManageEmployees
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_ProfilePage;
+                userType.Activator = Activate_5_ManageEmployees;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  COMPE361_Project.SchedulePage
+            case 6:   //  COMPE361_Project.ManagePTO
                 userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_SchedulePage;
+                userType.Activator = Activate_6_ManagePTO;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  COMPE361_Project.PayrollSystem
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_PayrollSystem;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  COMPE361_Project.LoginPage
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_LoginPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 9:   //  COMPE361_Project.ProfilePage
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_ProfilePage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  COMPE361_Project.PTORequest
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_PTORequest;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  COMPE361_Project.ViewSchedule
+                userType = new global::COMPE361_Project.COMPE361_Project_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_ViewSchedule;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

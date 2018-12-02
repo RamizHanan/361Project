@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="COMPE361_Project.SchedulePage"
+    x:Class="COMPE361_Project.ViewSchedule"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:COMPE361_Project"

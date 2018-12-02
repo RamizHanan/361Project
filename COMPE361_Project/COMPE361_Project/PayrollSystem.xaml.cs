@@ -22,12 +22,25 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class PayrollSystem : Page
     {
-    //    bool isManager = true;
-    //    string Username = "John";
-    //    string Position = "Manager";
+        bool admin = true;
+        bool manager = true;
         public PayrollSystem()
         {
             this.InitializeComponent();
+            if (admin == true) Manage_Employees.Visibility = Visibility.Visible;
+            else Manage_Employees.Visibility = Visibility.Collapsed;
+            if (manager == true || admin == true)
+            {
+                Clock_Title.Content = "Clock Logs";
+                Calendar_Title.Content = "Edit Schedule";
+                PTO_Title.Content = "Manage PTO";
+            }
+            else
+            {
+                Clock_Title.Content = "Clock In/Out";
+                Calendar_Title.Content = "View Schedule";
+                PTO_Title.Content = "PTO Request";
+            }
             Content.SourcePageType = typeof(ProfilePage);
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -42,13 +55,24 @@ namespace COMPE361_Project
         {
             this.Frame.Navigate(typeof(LoginPage));
         }
-        private void EmployeeClock_Click(object sender, RoutedEventArgs e)
+        private void Clock_Click(object sender, RoutedEventArgs e)
         {
-            Content.Navigate(typeof(EmployeeClock));
+            if (manager == true || admin == true) Content.Navigate(typeof(ClockLogs));
+            else Content.Navigate(typeof(EmployeeClock));
         }
-        private void Schedule_View(object sender, RoutedEventArgs e)
+        private void Schedule_Click(object sender, RoutedEventArgs e)
         {
-            Content.Navigate(typeof(SchedulePage));
+            if (manager == true || admin == true) Content.Navigate(typeof(EditSchedule));
+            else Content.Navigate(typeof(ViewSchedule));
+        }
+        private void PTO_Click(object sender, RoutedEventArgs e)
+        {
+            if (manager == true || admin == true) Content.Navigate(typeof(ManagePTO));
+            else Content.Navigate(typeof(PTORequest));
+        }
+        private void Manage_Employee(object sender, RoutedEventArgs e)
+        {
+            Content.Navigate(typeof(ManageEmployees));
         }
     }
 }
