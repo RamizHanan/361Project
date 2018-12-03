@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using CsvParse;
+//using CsvParse;
 
 
 namespace COMPE361_Project
@@ -35,7 +35,7 @@ namespace COMPE361_Project
             picker.FileTypeFilter.Add(".csv");
 
             var file = await picker.PickSingleFileAsync();
-            using (CsvParse.CsvFileReader csvReader = new CsvParse.CsvFileReader(await file.OpenStreamForReadAsync()))
+            /*using (CsvParse.CsvFileReader csvReader = new CsvParse.CsvFileReader(await file.OpenStreamForReadAsync()))
             {
                 CsvParse.CsvRow row = new CsvParse.CsvRow();
                 while (csvReader.ReadRow(row))
@@ -52,7 +52,7 @@ namespace COMPE361_Project
                     CsvRows.Add(newRow);
                 }
             }
-            CSVRowsListView.ItemsSource = CsvRows;
+            CSVRowsListView.ItemsSource = CsvRows;*/
         }
         
     }

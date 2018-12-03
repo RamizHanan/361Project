@@ -19,6 +19,19 @@
             <PasswordBox x:ConnectionId='3'                      x:Name="Password" Width="280" Padding="10,3,6,5" VerticalAlignment="Top" Margin="738,527,0,0" HorizontalAlignment="Left"/>
             <TextBlock x:ConnectionId='4' x:Name="error" Height="35" Text="" TextWrapping="Wrap" Width="276" TextAlignment="Center" FontSize="16" VerticalAlignment="Top" Margin="738,573,0,0" HorizontalAlignment="Left"/>
             <Button x:ConnectionId='5' Content="Login"                      Height="69" Width="137" FontSize="36" Background="#FF3CAEE8" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,649,0,0"/>
+            <Button x:ConnectionId='6' Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0"                          >
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Add"/>
+                    <TextBlock Margin="5">Save</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='7' Name="ButtonLogin" Visibility="Visible" Margin="0,8,8,0" 
+                                   TabIndex="0">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Permissions"/>
+                    <TextBlock Margin="5">Sign in</TextBlock>
+                </StackPanel>
+            </Button>
             <ScrollBar HorizontalAlignment="Left" Height="990" Margin="1478,0,0,0" VerticalAlignment="Top" Width="22"/>
             <ScrollBar HorizontalAlignment="Center" Height="23" Margin="0,978,0,0" VerticalAlignment="Top" Width="1501"/>
         </Grid>

@@ -30558,11 +30558,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Albert\\Desktop\\361Project-master\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Albert\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "projectName": "COMPE361_Project",
-      "projectPath": "C:\\Users\\Albert\\Desktop\\361Project-master\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectPath": "C:\\Users\\Albert\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "packagesPath": "C:\\Users\\Albert\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Albert\\Desktop\\361Project-master\\COMPE361_Project\\COMPE361_Project\\obj\\",
+      "outputPath": "C:\\Users\\Albert\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
