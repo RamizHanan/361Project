@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using CsvParse;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 
 namespace COMPE361_Project
@@ -32,9 +34,22 @@ namespace COMPE361_Project
         private async void Button_Click(object sender, RoutedEventArgs e) {
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
-            picker.FileTypeFilter.Add(".csv");
+            picker.FileTypeFilter.Add(".json");
 
             var file = await picker.PickSingleFileAsync();
+            JObject o1 = JObject.Parse(File.ReadAllText(file.Name));
+            CSVRowsListView.ItemsSource = o1;
+
+            // read JSON directly from a file
+            /*
+            using (StreamReader fileRead = File.OpenText(file.Name))
+            using (JsonTextReader reader = new JsonTextReader(fileRead))
+            {
+                JObject o2 = (JObject)JToken.ReadFrom(reader);
+                CSVRowsListView.ItemsSource = o1;
+            }
+            */
+            /*
             using (CsvParse.CsvFileReader csvReader = new CsvParse.CsvFileReader(await file.OpenStreamForReadAsync()))
             {
                 CsvParse.CsvRow row = new CsvParse.CsvRow();
@@ -53,6 +68,7 @@ namespace COMPE361_Project
                 }
             }
             CSVRowsListView.ItemsSource = CsvRows;
+            */
         }
         
     }
