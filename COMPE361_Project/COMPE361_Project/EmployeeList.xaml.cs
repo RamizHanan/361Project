@@ -36,39 +36,52 @@ namespace COMPE361_Project
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
             picker.FileTypeFilter.Add(".json");
 
+            //Pick JSON file
             var file = await picker.PickSingleFileAsync();
+
+            //Create JObject from JSON file
             JObject o1 = JObject.Parse(File.ReadAllText(file.Name));
-            CSVRowsListView.ItemsSource = o1;
 
-            // read JSON directly from a file
-            /*
-            using (StreamReader fileRead = File.OpenText(file.Name))
-            using (JsonTextReader reader = new JsonTextReader(fileRead))
-            {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
-                CSVRowsListView.ItemsSource = o1;
-            }
-            */
-            /*
-            using (CsvParse.CsvFileReader csvReader = new CsvParse.CsvFileReader(await file.OpenStreamForReadAsync()))
-            {
-                CsvParse.CsvRow row = new CsvParse.CsvRow();
-                while (csvReader.ReadRow(row))
-                {
-                    string newRow = "";
-                    // add the columns one at a time
-                    for (int i = 0; i < row.Count; i++)
-                    {
-                        newRow += row[i] + ",";
-                    }
+            //Checks if key is in JSON
+            bool value = o1.ContainsKey("dylanwraith@gmail.com");
 
-                    // add the row to our ObservableCollection object
-                    // we'll assign this to our UI ListView
-                    CsvRows.Add(newRow);
-                }
+            //Make JObject with data at dyalnwraith@gmail.com
+            JObject o2 = (JObject)o1["dylanwraith@gmail.com"];
+
+
+            try
+            {
+                //Convert to string
+                string dylanwraith = o2.ToString();
+
+                //Make employee from JSON
+                Employee test = new Employee();
+                Newtonsoft.Json.JsonConvert.PopulateObject(dylanwraith, test);
+
+                //Make JSON from employee
+                string newJson = JsonConvert.SerializeObject(test);
+
+                //Write to screen
+                CsvRows.Add(test.FirstName);
+                CsvRows.Add(test.LastName);
+                CsvRows.Add(test.EmployeeID);
+                CsvRows.Add(test.EmailAddress);
+                CsvRows.Add(test.CellNumber);
+                CsvRows.Add(test.Password);
+                CsvRows.Add(test.UserName);
+                CsvRows.Add(newJson);
+                CsvRows.Add(value.ToString());
+                CSVRowsListView.ItemsSource = CsvRows;
+
+                //Create new file
+                File.WriteAllText(@"C:\Users\Dylan's PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\AppX\test.json", newJson);
             }
-            CSVRowsListView.ItemsSource = CsvRows;
-            */
+            catch(Exception ex)
+            {
+                CsvRows.Add(ex.Message);
+                CsvRows.Add("Error - User not found");
+                CSVRowsListView.ItemsSource = CsvRows;
+            }
         }
         
     }

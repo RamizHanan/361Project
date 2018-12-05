@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>aaebc695-0808-444b-a811-0d5319b6021c</PackageIdentityName>
     <PackageIdentityPublisher>CN=Drowz</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.exe">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.exe">
       <PackagePath>entrypoint\COMPE361_Project.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\.nuget\packages\microsoft.csharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
@@ -391,61 +391,61 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.xml.xmlserializer\4.0.11\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\background.jpg">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\background.jpg">
       <PackagePath>Assets\background.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\profilepic.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\profilepic.png">
       <PackagePath>Assets\profilepic.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.xr.xml">
       <PackagePath>COMPE361_Project.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeClock.xbf">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeClock.xbf">
       <PackagePath>EmployeeClock.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeList.xbf">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeList.xbf">
       <PackagePath>EmployeeList.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\PayrollSystem.xbf">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\PayrollSystem.xbf">
       <PackagePath>PayrollSystem.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\LoginPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\ProfilePage.xbf">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\ProfilePage.xbf">
       <PackagePath>ProfilePage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
@@ -466,11 +466,11 @@
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\4.0.0\lib\uap10.0\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Themes\Generic.xbf">
       <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Themes\Generic.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Downloads\361Project-master\361Project-master\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\COMPE361_Project.exe">
+    <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\COMPE361_Project.exe">
       <PackagePath>COMPE361_Project.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
