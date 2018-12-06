@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-06T00:05:34.271</Modified>
+      <Modified>2018-12-06T23:11:48.032</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\COMPE361_Project.exe">
       <PackagePath>entrypoint\COMPE361_Project.exe</PackagePath>
-      <Modified>2018-12-06T00:05:32.109</Modified>
+      <Modified>2018-12-06T23:11:46.717</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\.nuget\packages\microsoft.csharp\4.3.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -575,27 +575,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2018-12-06T00:05:31.819</Modified>
+      <Modified>2018-12-06T23:11:46.481</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeClock.xbf">
       <PackagePath>EmployeeClock.xbf</PackagePath>
-      <Modified>2018-12-06T00:05:31.820</Modified>
+      <Modified>2018-12-06T23:11:46.481</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\EmployeeList.xbf">
       <PackagePath>EmployeeList.xbf</PackagePath>
-      <Modified>2018-12-06T00:05:31.821</Modified>
+      <Modified>2018-12-06T23:11:46.482</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\PayrollSystem.xbf">
       <PackagePath>PayrollSystem.xbf</PackagePath>
-      <Modified>2018-12-06T00:05:31.822</Modified>
+      <Modified>2018-12-06T23:11:46.483</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
-      <Modified>2018-12-06T00:05:31.823</Modified>
+      <Modified>2018-12-06T23:11:46.484</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\ProfilePage.xbf">
       <PackagePath>ProfilePage.xbf</PackagePath>
-      <Modified>2018-12-06T00:05:31.824</Modified>
+      <Modified>2018-12-06T23:11:46.485</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -624,11 +624,11 @@
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-12-06T00:05:33.702</Modified>
+      <Modified>2018-12-06T23:11:47.578</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dylan%27s PC\Documents\GitHub\361Project\COMPE361_Project\COMPE361_Project\bin\x86\Debug\Core\COMPE361_Project.exe">
       <PackagePath>COMPE361_Project.exe</PackagePath>
-      <Modified>2018-12-06T00:05:34.260</Modified>
+      <Modified>2018-12-06T23:11:48.029</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

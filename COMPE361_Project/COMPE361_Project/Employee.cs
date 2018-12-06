@@ -12,9 +12,7 @@ namespace COMPE361_Project
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string CellNumber { get; set; }
-        public string EmployeeID { get; set; }
-        bool IsAdmin { get; set; }
-        public string UserName { get; set; }
+        public bool IsAdmin { get; set; }
         public string Password { get; set; }
         DateTime LastClockIn;
         DateTime LastClockOut;
