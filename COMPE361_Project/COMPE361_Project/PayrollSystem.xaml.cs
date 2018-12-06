@@ -22,8 +22,8 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class PayrollSystem : Page
     {
-        bool admin = true;
-        bool manager = true;
+        bool admin = false;
+        bool manager = false;
         public PayrollSystem()
         {
             this.InitializeComponent();

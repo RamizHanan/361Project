@@ -13,14 +13,10 @@
             <Image Source="Assets/background2.jpg" Stretch="UniformToFill" Margin="0,1,0,-1" HorizontalAlignment="Stretch" Width="1500" VerticalAlignment="Stretch"/>
             <Border Background="White" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="625" Margin="0,335,0,250">
                 <Grid>
-                    <TextBlock Text="Username:" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" Padding="0,3,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,56,0,0"/>
-                    <TextBlock x:Name="error" Height="35" Text="" TextWrapping="Wrap" Width="276" TextAlignment="Center" FontSize="16" VerticalAlignment="Top" Margin="172,349,0,0" HorizontalAlignment="Left"/>
-                    <Button Content="Login" Click = "LoginPress" Height="69" Width="137" FontSize="36" Background="#FF31AC78" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,249,0,0"/>
+                    <TextBlock x:Name="status" Height="265" Text="" TextWrapping="Wrap" Width="624" TextAlignment="Center" FontSize="16" VerticalAlignment="Top" Margin="0,155,0,0" HorizontalAlignment="Center"/>
+                    <Button Content="Login" Click = "Login_Click" Height="69" Width="137" FontSize="36" Background="#FF31AC78" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,67,0,0"/>
                 </Grid>
             </Border>
-            <TextBlock  Text="Password :" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="483,513,0,0" HorizontalAlignment="Left"/>
-            <TextBox KeyDown="EnterPress" x:Name="Username" Height="32" Width="280" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="738,408,0,0" HorizontalAlignment="Left"/>
-            <PasswordBox KeyDown="EnterPress" x:Name="Password" Width="280" Padding="10,3,6,5" VerticalAlignment="Top" Margin="738,527,0,0" HorizontalAlignment="Left"/>
             <ScrollBar HorizontalAlignment="Left" Height="990" Margin="1478,0,0,0" VerticalAlignment="Top" Width="22"/>
             <ScrollBar HorizontalAlignment="Center" Height="23" Margin="0,978,0,0" VerticalAlignment="Top" Width="1501"/>
         </Grid>

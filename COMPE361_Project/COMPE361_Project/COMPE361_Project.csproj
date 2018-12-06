@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Company.cs" />
+    <Compile Include="Classes\Employee.cs" />
     <Compile Include="ClockLogs.xaml.cs">
       <DependentUpon>ClockLogs.xaml</DependentUpon>
     </Compile>
@@ -193,6 +195,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Google.Apis">
+      <Version>1.36.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client">
+      <Version>4.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.2</Version>
     </PackageReference>

@@ -12,7 +12,7 @@
         <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
         <SplitView DisplayMode="Inline" IsPaneOpen="True">
             <SplitView.Pane>
-                <ListView Background="White">
+                <ListView x:ConnectionId='2' Name="Employees" Background="White">
                     <ListViewHeaderItem Content="Employees"/>
                 </ListView>
             </SplitView.Pane>
