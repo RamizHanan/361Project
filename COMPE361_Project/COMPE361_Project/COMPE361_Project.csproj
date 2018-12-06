@@ -114,6 +114,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserData.cs" />
     <Compile Include="Utilities\CsvParse.cs" />
+    <Compile Include="Utilities\ReadFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

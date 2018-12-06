@@ -16,35 +16,19 @@ using Windows.UI.Xaml.Navigation;
 using CsvParse;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
 
 namespace COMPE361_Project
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    /// 
-    
+    /*
     public sealed partial class EmployeeList : Page
     {
-
-        //Create file
-        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-        Windows.Storage.StorageFile coolFile;
-
-        public EmployeeList()
-        {
-            this.InitializeComponent();
-        }
-
         private ObservableCollection<string> CsvRows = new ObservableCollection<string>();
 
-        private async void Button_Click(object sender, RoutedEventArgs e) {
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
             var picker = new Windows.Storage.Pickers.FileOpenPicker();
             picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
             picker.FileTypeFilter.Add(".json");
-
-            
 
             //Pick JSON file
             var file = await picker.PickSingleFileAsync();
@@ -83,18 +67,17 @@ namespace COMPE361_Project
                 CsvRows.Add(value.ToString());
                 CSVRowsListView.ItemsSource = CsvRows;
 
-                //Create new file from JSON string
-                coolFile = await storageFolder.CreateFileAsync("coolFile.json", Windows.Storage.CreationCollisionOption.ReplaceExisting);
-                await Windows.Storage.FileIO.WriteTextAsync(coolFile, newJson);
+                //Create new file from JSON string**************BROKEN _ HAS TO BE DONE IN UTILITY??*******************
+                //File.WriteAllText(@"../test.json", newJson);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CsvRows.Add(ex.Message);
                 CsvRows.Add("Error - User not found");
                 CSVRowsListView.ItemsSource = CsvRows;
             }
         }
-        
+
     }
-    
+    */
 }
