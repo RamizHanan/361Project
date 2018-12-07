@@ -44,8 +44,9 @@ namespace COMPE361_Project
         }
         private void EmployeeClock_Click(object sender, RoutedEventArgs e)
         {
-            // Content.Navigate(typeof(EmployeeClock));
+            //Content.Navigate(typeof(EmployeeClock));
             Content.Navigate(typeof(EmployeeList));
+            //NavigationService.Navigate(new Uri("YourPageHere.xaml", UriKind.Relative));
 
         }
     }

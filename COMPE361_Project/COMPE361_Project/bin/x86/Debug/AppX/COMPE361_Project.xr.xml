@@ -11,12 +11,9 @@
       <RootProperty Name="Children" />
       <RootProperty Name="Padding" />
       <RootProperty Name="ColumnDefinitions" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="RowDefinitions" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
-      <RootMethod Name="GetRow" />
-      <RootMethod Name="SetRow" />
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
@@ -43,11 +40,13 @@
       <RootProperty Name="TextDecorations" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="TextWrapping" />
-      <RootProperty Name="FontWeight" />
-      <RootProperty Name="Padding" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Inlines" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Padding" />
       <RootProperty Name="TextAlignment" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="ItemsSource" />
@@ -66,6 +65,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
+      <RootProperty Name="MinWidth" />
     </RootType>
     <RootType FullName="COMPE361_Project.EmployeeClock" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
@@ -75,11 +75,13 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootEvent Name="TextChanged" />
       <RootEvent Name="KeyDown" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
-      <RootProperty Name="Height" />
+    <RootType FullName="Windows.UI.Xaml.Documents.Run">
+      <RootProperty Name="Text" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.LineBreak" />
     <RootType FullName="COMPE361_Project.EmployeeList" />
     <RootType FullName="Windows.UI.Xaml.Controls.Viewbox">
       <RootProperty Name="Stretch" />
@@ -120,8 +122,13 @@
       <RootProperty Name="Margin" />
       <RootEvent Name="Click" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="COMPE361_Project.PayrollSystem" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">

@@ -23,97 +23,149 @@ namespace COMPE361_Project
 {    
     public sealed partial class EmployeeList : Page
     {
-        //Create temporary files
-        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-        Windows.Storage.StorageFile testEmployeeFile;
-
         public EmployeeList()
         {
             this.InitializeComponent();
         }
 
-        private ObservableCollection<string> CsvRows = new ObservableCollection<string>();
+        //Create temporary files
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        bool employeeExists = true;
+        public async void AddEmployee(string username, string password, Employee newEmployee)
+        {
+            //Check if employee already exists
+            CheckIfEmployeeExists(username, password);
 
-        private async void Button_Click(object sender, RoutedEventArgs e) {
+            //If employee doesn't exist
+            if (!employeeExists)
+            {
+                //Make JSON string from dictionary
+                string newEmployeeJSON = CreateEmployeeJSON(username, password, newEmployee);
+
+                //Write to employee JSON
+                WriteToJSON(newEmployeeJSON);
+
+                //**Write Employee Successfully Added**
+                TestStatus.Text = "SUCCESS - EMPLOYEE ADDED";
+
+            }
+            //If employee already exists
+            else
+                TestStatus.Text = "ERROR - EMPLOYEE ALREADY EXISTS";
+        }
+
+        public async void WriteToJSON(string newJSON)
+        {
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            if (newFile == "")
+                newFile = newJSON;
+            else
+            {
+                newFile = newFile.Remove(newFile.Length - 1, 1);
+                newJSON = newJSON.Remove(0, 1);
+                newJSON = newJSON.Remove(newJSON.Length - 1, 1);
+                newFile = newFile + ',' + newJSON + '}';
+            }
+            await Windows.Storage.FileIO.WriteTextAsync(employeeFile, newFile);
+        }
+
+        public async void CheckIfEmployeeExists(string username, string password)
+        {
+            ReadFile();
+            string employeeList = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+
+            //Check if employee already exists
+            JObject employeeChecker = JObject.Parse(employeeList);
+
+            //If employee does not exist
             try
             {
-                //Read JSON file
-                testEmployeeFile = await storageFolder.GetFileAsync("testEmployeeFileRead.json"); //await storageFolder.CreateFileAsync("testEmployeeFile.json", Windows.Storage.CreationCollisionOption.ReplaceExisting);
-                string testEmployee = await Windows.Storage.FileIO.ReadTextAsync(testEmployeeFile);
-
-                //Create JObject from JSON file
-                JObject o1 = JObject.Parse(testEmployee);
-
-                //Checks if key is in JSON
-                bool value = o1.ContainsKey(Username.Text);
-
-                //Make JObject with data at us:dylanwraith, pw:081597
-                if ((JObject)o1[Username.Text][Password.Text] != null)
-                {
-                    JObject o2 = (JObject)o1[Username.Text][Password.Text];
-
-
-                    //Convert JSON to JSON string
-                    string dylanwraith = o2.ToString();
-
-                    //Make employee from JSON string
-                    Employee test = new Employee();
-                    Newtonsoft.Json.JsonConvert.PopulateObject(dylanwraith, test);
-
-                    //Create dictionary of dictionaries
-                    Dictionary<string, Employee> dictionaryTest = new Dictionary<string, Employee>
-                    {
-                        { Password.Text, test }
-                    };
-                    Dictionary<string, Dictionary<string, Employee>> dictionaryOfDictionaryTest = new Dictionary<string, Dictionary<string, Employee>>
-                    {
-                        { Username.Text, dictionaryTest }
-                    };
-
-                    //Make JSON string from employee
-                    string newJson = JsonConvert.SerializeObject(test);
-
-                    //Make JSON string from dictionary
-                    string dictionaryString = JsonConvert.SerializeObject(dictionaryOfDictionaryTest, Formatting.Indented);
-
-                    //Write to screen
-                    CsvRows.Add(test.FirstName);
-                    CsvRows.Add(test.LastName);
-                    CsvRows.Add(test.EmailAddress);
-                    CsvRows.Add(test.CellNumber);
-                    CsvRows.Add(test.Password);
-                    CsvRows.Add(newJson);
-                    CsvRows.Add(value.ToString());
-                    CSVRowsListView.ItemsSource = CsvRows;
-
-                    //Write to employee JSON
-                    testEmployeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json",Windows.Storage.CreationCollisionOption.OpenIfExists);
-                    string newFile = await Windows.Storage.FileIO.ReadTextAsync(testEmployeeFile);
-                    if (newFile == "")
-                    {
-                        //newFile = '{' + newJson + '}';
-                        newFile = dictionaryString;
-                    }
-                    else
-                    {
-                        newFile = newFile.Remove(newFile.Length - 1, 1);  //newFile.TrimEnd('}');
-                        dictionaryString = dictionaryString.Remove(0, 1);
-                        dictionaryString = dictionaryString.Remove(dictionaryString.Length - 1, 1);
-                        //newFile = newFile + ',' + newJson + '}';
-                        newFile = newFile + ',' + dictionaryString + '}';
-                    }
-                    await Windows.Storage.FileIO.WriteTextAsync(testEmployeeFile, newFile);
-                }
+                if (employeeChecker[username][password] == null) employeeExists = false;
+                else employeeExists = true;
             }
-            catch(Exception ex)
-            {
-                CsvRows.Add(ex.Message);
-                CsvRows.Add("Error - User not found");
-                CSVRowsListView.ItemsSource = CsvRows;
-            }
-            
+            catch { employeeExists = false; }
         }
-        
-    }
+
+        public async void ReadFile()
+        {
+            employeeFile = await storageFolder.GetFileAsync("testEmployeeFileWrite.json");
+        }
+
+        public string CreateEmployeeJSON(string username, string password, Employee newEmployee)
+        {
+            //Create employee dictionary
+            Dictionary<string, Employee> tempEmployee = new Dictionary<string, Employee>
+                {
+                    { password, newEmployee }
+                };
+            Dictionary<string, Dictionary<string, Employee>> newEmployeeDictionary = new Dictionary<string, Dictionary<string, Employee>>
+                {
+                    { username, tempEmployee }
+                };
+
+            //Make JSON string from dictionary
+            return JsonConvert.SerializeObject(newEmployeeDictionary, Formatting.Indented);
+        }
+
+        public Employee CreateEmployee()
+        {
+            Employee employee = new Employee();
+            employee.FirstName = FirstName.Text;
+            employee.LastName = LastName.Text;
+            employee.CellNumber = PhoneNumber.Text;
+            employee.EmailAddress = EmailAddress.Text;
+            return employee;
+        }
+
+        //Create new employee
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = CreateEmployee();
+            AddEmployee(Username.Text, Password.Text, employee);
+        }
+
+        //Loads employee data
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReadFile();
+            CheckIfEmployeeExists(Username.Text, Password.Text);
+            if (!employeeExists) TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST";
+            else
+            {
+                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject employeeList = JObject.Parse(employeeListString);
+                string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
+                Employee foundEmployee = new Employee();
+                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                FirstName.Text = foundEmployee.FirstName;
+                LastName.Text = foundEmployee.LastName;
+                EmailAddress.Text = foundEmployee.EmailAddress;
+                PhoneNumber.Text = foundEmployee.CellNumber;
+                TestStatus.Text = "SUCCESS - EMPLOYEE FOUND";
+            }
+        }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+            {
+
+            }
+
+            private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            {
+
+            }
+
+            private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+            {
+
+            }
+
+            private void First_Copy1_SelectionChanged(object sender, RoutedEventArgs e)
+            {
+
+            }
+        }
     
 }
