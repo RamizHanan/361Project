@@ -14,17 +14,19 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button x:ConnectionId='2' Content="Load Up CSV File" VerticalAlignment="Top" Margin="8"                     />
+        <Button x:ConnectionId='2' Content="Press Me!" VerticalAlignment="Top" Margin="8"                     />
         <Grid Grid.Column="1" Margin="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text=" Loaded CSV Rows" />
-            <ListView x:ConnectionId='3' x:Name="CSVRowsListView" Grid.Row="1">
+            <TextBlock Text="Loaded JSON Data:" HorizontalAlignment="Stretch" Margin="0,25,0,919" Grid.Row="1" VerticalAlignment="Stretch" />
+            <ListView x:ConnectionId='5' x:Name="CSVRowsListView" Grid.Row="1" HorizontalAlignment="Stretch" Margin="0,50,0,0" VerticalAlignment="Stretch">
 
             </ListView>
         </Grid>
+        <TextBox x:ConnectionId='3' x:Name="Username" HorizontalAlignment="Left" Text="Enter Name Here" VerticalAlignment="Top" Margin="176.2,24,0,0" Grid.Column="1"/>
+        <TextBox x:ConnectionId='4' x:Name="Password" HorizontalAlignment="Left" Text="Enter Password Here" VerticalAlignment="Top" Grid.Column="1" Margin="399.2,24,0,0"/>
     </Grid>
 </Page>
 

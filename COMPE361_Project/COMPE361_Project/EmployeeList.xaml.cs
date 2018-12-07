@@ -20,16 +20,10 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 namespace COMPE361_Project
-{
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    /// 
-    
+{    
     public sealed partial class EmployeeList : Page
     {
-
-        //Create file
+        //Create temporary files
         Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         Windows.Storage.StorageFile testEmployeeFile;
 
@@ -41,17 +35,6 @@ namespace COMPE361_Project
         private ObservableCollection<string> CsvRows = new ObservableCollection<string>();
 
         private async void Button_Click(object sender, RoutedEventArgs e) {
-            /*
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.List;
-            picker.FileTypeFilter.Add(".json");
-
-            
-
-            
-            var file = await picker.PickSingleFileAsync();
-            */
-
             try
             {
                 //Read JSON file
@@ -62,12 +45,12 @@ namespace COMPE361_Project
                 JObject o1 = JObject.Parse(testEmployee);
 
                 //Checks if key is in JSON
-                bool value = o1.ContainsKey("dylanwraith");
+                bool value = o1.ContainsKey(Username.Text);
 
                 //Make JObject with data at us:dylanwraith, pw:081597
-                if ((JObject)o1["dylanwraith"]["081597"] != null)
+                if ((JObject)o1[Username.Text][Password.Text] != null)
                 {
-                    JObject o2 = (JObject)o1["dylanwraith"]["081597"];
+                    JObject o2 = (JObject)o1[Username.Text][Password.Text];
 
 
                     //Convert JSON to JSON string
@@ -80,11 +63,11 @@ namespace COMPE361_Project
                     //Create dictionary of dictionaries
                     Dictionary<string, Employee> dictionaryTest = new Dictionary<string, Employee>
                     {
-                        { "081597", test }
+                        { Password.Text, test }
                     };
                     Dictionary<string, Dictionary<string, Employee>> dictionaryOfDictionaryTest = new Dictionary<string, Dictionary<string, Employee>>
                     {
-                        { "dylanwraith", dictionaryTest }
+                        { Username.Text, dictionaryTest }
                     };
 
                     //Make JSON string from employee
