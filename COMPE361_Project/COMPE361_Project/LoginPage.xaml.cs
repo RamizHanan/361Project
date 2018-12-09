@@ -169,7 +169,9 @@ namespace COMPE361_Project
             output("Making API Call to Userinfo...");
             HttpResponseMessage userinfoResponse = client.GetAsync(userInfoEndpoint).Result;
             string userinfoResponseContent = await userinfoResponse.Content.ReadAsStringAsync();
-            output(userinfoResponseContent);
+           // output(userinfoResponseContent);
+            this.Frame.Navigate(typeof(PayrollSystem));
+
         }
 
         /// <summary>
@@ -178,7 +180,7 @@ namespace COMPE361_Project
         /// <param name="output">string to be appended</param>
         public void output(string output)
         {
-            textBoxOutput.Text = textBoxOutput.Text + output + Environment.NewLine;
+           // textBoxOutput.Text = textBoxOutput.Text + output + Environment.NewLine;
             Debug.WriteLine(output);
         }
 

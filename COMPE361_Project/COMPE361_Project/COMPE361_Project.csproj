@@ -103,8 +103,12 @@
     <Compile Include="EditSchedule.xaml.cs">
       <DependentUpon>EditSchedule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeClock.xaml.cs">
       <DependentUpon>EmployeeClock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeList.xaml.cs">
+      <DependentUpon>EmployeeList.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManageEmployees.xaml.cs">
       <DependentUpon>ManageEmployees.xaml</DependentUpon>
@@ -165,6 +169,10 @@
     <Page Include="EmployeeClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployeeList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ManageEmployees.xaml">
       <SubType>Designer</SubType>

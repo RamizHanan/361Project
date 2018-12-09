@@ -16,13 +16,4 @@ namespace COMPE361_Project
             ClockedTimes = clockedTime; ClockedTypes = clockedType;
         }
     }
-    class Employee
-    {
-            string FirstName { get; }
-            string LastName { get; }
-            string EmailAddress { get; }
-            string CellNumber { get; }
-            bool IsAdmin { get; }
-            bool IsManager { get; }
-    }
 }
