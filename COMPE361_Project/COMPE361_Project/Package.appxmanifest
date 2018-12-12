@@ -22,8 +22,8 @@
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="compe361project.azurewebsites.net">
-            <uap:DisplayName>Employee Portal Login</uap:DisplayName>
+          <uap:Protocol Name="pw.oauth2">
+            <uap:DisplayName>Test</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>
       </Extensions>

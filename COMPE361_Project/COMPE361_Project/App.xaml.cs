@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,7 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Microsoft.WindowsAzure.MobileServices;
+using System.Net.Http;
 namespace COMPE361_Project
 {
     /// <summary>
@@ -23,17 +23,11 @@ namespace COMPE361_Project
     /// </summary>
     sealed partial class App : Application
     {
-
-        // This MobileServiceClient has been configured to communicate with the Azure Mobile Service and
-        // Azure Gateway using the application url. You're all set to start working with your Mobile Service!
-        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient COMPE361ProjectClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-        "https://compe361project.azurewebsites.net");
-
-
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://employeeportalcompe361.azurewebsites.net/");
         public App()
         {
             this.InitializeComponent();
@@ -104,7 +98,6 @@ namespace COMPE361_Project
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
         protected override void OnActivated(IActivatedEventArgs args)
         {
             if (args.Kind == ActivationKind.Protocol)

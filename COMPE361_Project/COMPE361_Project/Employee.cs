@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace COMPE361_Project
 {
-    class Employee
+    public class Employee
     {
-        string FirstName { get; }
-        string LastName { get; }
-        string EmailAddress { get; }
-        string CellNumber { get;  }
-        string EmployeeID { get;  }
-        bool IsAdmin { get; }
-        string UserName { get; }
-        protected string Password { get; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmailAddress { get; set; }
+        public string CellNumber { get; set; }
+        public bool IsAdmin { get; set; }
+        public string Password { get; set; }
         DateTime LastClockIn;
         DateTime LastClockOut;
     }
