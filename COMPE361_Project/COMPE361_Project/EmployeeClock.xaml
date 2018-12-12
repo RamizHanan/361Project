@@ -7,36 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
-        <Button Click="ClockIn" Content="Clock In" HorizontalAlignment="Left" Margin="400,100,0,0" VerticalAlignment="Top" Height="100" Width="175" FontSize="36"/>
-        <Button Click="ClockOut" Content="Clock Out" FontSize="36" HorizontalAlignment="Right" Margin="0,100,400,0" VerticalAlignment="Top" Height="100" Width="178"/>
-        <TextBlock Text="Recent Clocked Times" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" FontSize="36" TextDecorations="Underline" FontFamily="Segoe UI"/>
-        <ListView x:Name="Recent_Clocked_Times" ItemsSource="{x:Bind Data.DataSet}" HorizontalAlignment="Center" Height="500" Margin="0,350,0,0" VerticalAlignment="Top" Width="1000" FontFamily="Segoe UI">
-            <ListView.HeaderTemplate>
-                <DataTemplate>
-                    <Grid Padding="15">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="500"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="Clocked Times" HorizontalAlignment="Center"/>
-                        <TextBlock Grid.Column="1" Text="Clocked Types" HorizontalAlignment="Center"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.HeaderTemplate>
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local:ClockInfo">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="500"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="{x:Bind ClockedTimes}"/>
-                        <TextBlock Grid.Column="1" Text="{x:Bind ClockedTypes}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
+        <RelativePanel Background="White" VerticalAlignment="Stretch" Height="500" Width="1000" HorizontalAlignment="Stretch">
+            <Button Click="ClockIn" Content="Clock In" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Height="100" Width="175" FontSize="36"/>
+            <Button Click="ClockOut" Content="Clock Out" FontSize="36" RelativePanel.AlignRightWithPanel="True" Height="100" Width="175"/>
+            <Button Click="LunchOut" Content="Lunch Clock Out" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontSize="36" Height="100" Width="300"/>
+            <Button Click="LunchIn" Content="Lunch Clock In" RelativePanel.AlignBottomWithPanel="True" FontSize="36" Height="100" Width="300"/>
+            <TextBlock Name="StatusBox" FontSize="36" FontWeight="Bold" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+        </RelativePanel>
     </Grid>
 </Page>

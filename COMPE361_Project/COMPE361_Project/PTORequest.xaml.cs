@@ -20,27 +20,28 @@ namespace COMPE361_Project
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class EmployeeClock : Page
+    public sealed partial class PTORequest : Page
     {
-        public EmployeeClock()
+        public PTORequest()
         {
             this.InitializeComponent();
         }
-        private void ClockIn(object sender, RoutedEventArgs e)
+        private void DateSelected(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
         {
-            StatusBox.Text = $"Clocked In at {DateTime.Now.ToString("h:mm:ss tt")}";
+            DatesRequested.Items.Clear();
+            foreach(DateTimeOffset date in DateSelector.SelectedDates)
+            {
+                DatesRequested.Items.Add(date.ToString("MM/dd/yyyy"));
+            }
         }
-        private void ClockOut(object sender, RoutedEventArgs e)
+        private void Clear(object sender, RoutedEventArgs e)
         {
-            StatusBox.Text = $"Clocked Out at {DateTime.Now.ToString("h:mm:ss tt")}";
+            DateSelector.SelectedDates.Clear();
         }
-        private void LunchIn(object sender, RoutedEventArgs e)
+        private void Send(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void LunchOut(object sender, RoutedEventArgs e)
-        {
-
+            Status.Text = "Request Successful";
+            //...
         }
     }
 }
