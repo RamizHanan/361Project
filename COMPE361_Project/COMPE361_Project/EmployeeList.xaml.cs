@@ -18,6 +18,7 @@ using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using System.Diagnostics;
 //Bert was here
+//bert was here part 2 NORF NORF
 
 namespace COMPE361_Project
 {    
