@@ -7,46 +7,47 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Viewbox Stretch="UniformToFill" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
-        <SplitView x:Name="Display" DisplayMode="CompactOverlay" IsPaneOpen="False" HorizontalAlignment="Center" Height="1058" VerticalAlignment="Center" Width="1600" CompactPaneLength="46" Padding="0,2,0,0" PanePlacement="Left">
-            <SplitView.Pane>
-                <StackPanel Background="LightGray">
-                    <StackPanel Orientation="Horizontal">
-                        <AppBarButton Icon="GlobalNavigationButton" Width="50" Height="50" Background="Transparent" Click="MenuButton_Click"/>
-                        <Button UseSystemFocusVisuals="False" Background="Transparent" Click="MenuButton_Click" Content="Menu" FontSize="18" VerticalAlignment="Center"/>
+
+    <ScrollViewer HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
+            <SplitView Name="Display" IsPaneOpen="False" DisplayMode="CompactOverlay">
+                <SplitView.Pane>
+                    <StackPanel Background="LightGray">
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton Icon="GlobalNavigationButton" Width="50" Height="50" Background="Transparent" Click="MenuButton_Click"/>
+                            <Button FocusVisualPrimaryBrush="LightGray" Background="Transparent" Click="MenuButton_Click" Content="Menu" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton Icon="Home" Width="50" Height="50" Background="Transparent" Click="HomeButton_Click"/>
+                            <Button Content="Home" Click="HomeButton_Click" FocusVisualSecondaryBrush="Blue" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton FontFamily="Segoe MDL2 Assets" Click="LogoutButton_Click" Content="&#xE7E8;" Height="50" Width="50" FontSize="18"/>
+                            <Button Background="Transparent" Click="LogoutButton_Click"  FontSize="18" VerticalAlignment="Center" Content="Logout"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton Name="Clock_Button" Click="Clock_Click" Icon="Clock" Width="50" Height="50" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Button Name="Clock_Title" Click="Clock_Click" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton Name="Calendar_Button" Click="Schedule_Click" Icon="Calendar" Width="50" Height="50" Background="Transparent"/>
+                            <Button Name="Calendar_Title" Click="Schedule_Click" Background="Transparent" FontSize="18" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <AppBarButton Name="PTO_Button" Click="PTO_Click" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
+                            <Button Name="PTO_Title" Click="PTO_Click" Background="Transparent" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Name="Manage_Employees" Orientation="Horizontal">
+                            <AppBarButton Click="Manage_Employee" Icon="AddFriend" Width="50" Height="50" Background="Transparent"/>
+                            <Button Click="Manage_Employee" Background="Transparent" Content="Add/Remove Employee" FontSize="18" VerticalAlignment="Center" />
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <AppBarButton Icon="Home" Width="50" Height="50" Background="Transparent" Click="HomeButton_Click"/>
-                        <Button Background="Transparent" Click="HomeButton_Click" Content="Home" FontSize="18" VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Click="LogoutButton_Click" FontFamily="Segoe MDL2 Assets" Content="&#xE7E8;" Width="50" Height="60" Background="Transparent" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center"/>
-                        <AppBarButton Height="56" Background="Transparent" Click="LogoutButton_Click" Content="Logout" FontSize="18" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" FontStretch="Expanded" HorizontalAlignment="Center" Margin="0,0,0,0"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <AppBarButton Click="EmployeeClock_Click" Icon="Clock" Width="50" Height="50" Background="Transparent"/>
-                        <AppBarButton Background="Transparent" Click="EmployeeClock_Click" Content="Clock In/Out" FontSize="18" VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <AppBarButton Icon="Calendar" Width="50" Height="50" Background="Transparent"/>
-                        <Button Background="Transparent" Content="View Schedule" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="PTO_Request" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
-                        <Button Background="Transparent" Content="Request PTO" FontSize="18" VerticalAlignment="Center" />
-                    </StackPanel>
-                </StackPanel>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="134*"/>
-                        <RowDefinition Height="45*"/>
-                        <RowDefinition Height="879*"/>
-                    </Grid.RowDefinitions>
-                    <Frame x:Name="Content" Margin="0,0,0,0.4" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                </Grid>
-            </SplitView.Content>
-        </SplitView>
-    </Viewbox>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Frame Name="Content"/>
+                </SplitView.Content>
+            </SplitView>
+        </Grid>
+    </ScrollViewer>
 </Page>

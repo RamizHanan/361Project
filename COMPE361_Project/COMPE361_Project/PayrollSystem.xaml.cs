@@ -15,20 +15,22 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
+
+
 namespace COMPE361_Project
 {
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class PayrollSystem : Page
+    public partial class PayrollSystem : Page
     {
-    //    bool isManager = true;
-    //    string Username = "John";
-    //    string Position = "Manager";
+        ProgramParams employee = new ProgramParams();
+        bool admin = true;
+        bool manager = true;
         public PayrollSystem()
         {
             this.InitializeComponent();
-            Content.SourcePageType = typeof(ProfilePage);
         }
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
@@ -36,18 +38,69 @@ namespace COMPE361_Project
         }
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
-            Content.SourcePageType = typeof(ProfilePage);
+            var sendEmployee = new ProgramParams();
+            sendEmployee.FoundEmployee = employee.FoundEmployee;
+            Content.Navigate(typeof(ProfilePage), sendEmployee);
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LoginPage));
+            var sendEmployee = new ProgramParams();
+            sendEmployee.FoundEmployee = employee.FoundEmployee;
+            this.Frame.Navigate(typeof(LoginPage), sendEmployee);
         }
-        private void EmployeeClock_Click(object sender, RoutedEventArgs e)
+        private void Clock_Click(object sender, RoutedEventArgs e)
         {
-            //Content.Navigate(typeof(EmployeeClock));
-            Content.Navigate(typeof(EmployeeList));
-            //NavigationService.Navigate(new Uri("YourPageHere.xaml", UriKind.Relative));
+            var sendEmployee = new ProgramParams();
+            sendEmployee.FoundEmployee = employee.FoundEmployee;
+            if (employee.FoundEmployee.IsManager || employee.FoundEmployee.IsAdmin) Content.Navigate(typeof(ClockLogs), sendEmployee);
+            else Content.Navigate(typeof(EmployeeClock), sendEmployee);
+        }
+        private void Schedule_Click(object sender, RoutedEventArgs e)
+        {
+            var sendEmployee = new ProgramParams();
+            sendEmployee.FoundEmployee = employee.FoundEmployee;
+            if (employee.FoundEmployee.IsManager || employee.FoundEmployee.IsAdmin) Content.Navigate(typeof(EditSchedule), sendEmployee);
+            else Content.Navigate(typeof(ViewSchedule), sendEmployee);
+        }
+        private void PTO_Click(object sender, RoutedEventArgs e)
+        {
+            var sendEmployee = new ProgramParams();
+            sendEmployee.FoundEmployee = employee.FoundEmployee;
+            if (manager == true || admin == true) Content.Navigate(typeof(ManagePTO), sendEmployee);
+            else Content.Navigate(typeof(PTORequest), sendEmployee);
+        }
+        private void Manage_Employee(object sender, RoutedEventArgs e)
+        {
+            var sendEmployee = new ProgramParams();
+            sendEmployee.FoundEmployee = employee.FoundEmployee;
+            Content.Navigate(typeof(EmployeeList), sendEmployee);
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //Receive employee
+            base.OnNavigatedTo(e);
+            var currentEmployee = (ProgramParams)e.Parameter;
 
+            //Update global variable
+            employee = currentEmployee;
+
+            Content.Navigate(typeof(ProfilePage), employee);
+
+            //Update menu for employee
+            if (currentEmployee.FoundEmployee.IsAdmin) Manage_Employees.Visibility = Visibility.Visible;
+            else Manage_Employees.Visibility = Visibility.Collapsed;
+            if (currentEmployee.FoundEmployee.IsAdmin|| currentEmployee.FoundEmployee.IsManager)
+            {
+                Clock_Title.Content = Clock_Title.Content = "Clock Logs";
+                Calendar_Title.Content = "Edit Schedule";
+                PTO_Title.Content = "Manage PTO";
+            }
+            else
+            {
+                Clock_Title.Content = "Clock In/Out";
+                Calendar_Title.Content = "View Schedule";
+                PTO_Title.Content = "PTO Request";
+            }
         }
     }
 }

@@ -2,6 +2,51 @@
   "version": 3,
   "targets": {
     "UAP,Version=v10.0.15063": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -230,7 +275,7 @@
           "Microsoft.NETCore.Windows.ApiSets": "1.0.1"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -289,15 +334,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -386,7 +422,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -705,11 +741,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0"
@@ -1117,7 +1153,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -2467,6 +2503,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-arm": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2642,7 +2723,7 @@
           "runtime.win8-arm.Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -2702,15 +2783,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -2800,7 +2872,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -2990,7 +3062,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
-          "runtime.win8-arm.runtime.native.System.IO.Compression": "4.3.1"
+          "runtime.win8-arm.runtime.native.System.IO.Compression": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -3207,10 +3279,10 @@
           "runtimes/win8-arm/native/sos.dll": {}
         }
       },
-      "runtime.win8-arm.runtime.native.System.IO.Compression/4.3.1": {
+      "runtime.win8-arm.runtime.native.System.IO.Compression/4.3.0": {
         "type": "package",
         "native": {
-          "runtimes/win8-arm/nativeassets/netcore50/clrcompression.dll": {}
+          "runtimes/win8-arm/native/clrcompression.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -3386,11 +3458,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -3765,7 +3837,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -4969,6 +5041,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-arm-aot": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5145,7 +5262,7 @@
           "runtime.win8-arm.Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -5205,15 +5322,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -5303,7 +5411,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -5924,11 +6032,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -6303,7 +6411,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -7507,6 +7615,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-arm64-aot": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -7682,7 +7835,7 @@
           "Microsoft.NETCore.Windows.ApiSets": "1.0.1"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -7742,15 +7895,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -7840,7 +7984,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -8075,7 +8219,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
-          "runtime.win10-arm64.runtime.native.System.IO.Compression": "4.3.1"
+          "runtime.win10-arm64.runtime.native.System.IO.Compression": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -8261,10 +8405,10 @@
           "ref/netstandard/_._": {}
         }
       },
-      "runtime.win10-arm64.runtime.native.System.IO.Compression/4.3.1": {
+      "runtime.win10-arm64.runtime.native.System.IO.Compression/4.3.0": {
         "type": "package",
         "native": {
-          "runtimes/win10-arm64/native/clrcompression.dll": {}
+          "runtimes/win10-arm64/native/_._": {}
         }
       },
       "runtime.win7.System.Private.Uri/4.3.0": {
@@ -8449,11 +8593,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -8828,7 +8972,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -10032,6 +10176,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-x64": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -10210,7 +10399,7 @@
           "runtime.win7-x64.Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -10270,15 +10459,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -10368,7 +10548,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -10558,7 +10738,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
-          "runtime.win7-x64.runtime.native.System.IO.Compression": "4.3.1"
+          "runtime.win7-x64.runtime.native.System.IO.Compression": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -10772,10 +10952,10 @@
           "runtimes/win7-x64/native/sos.dll": {}
         }
       },
-      "runtime.win7-x64.runtime.native.System.IO.Compression/4.3.1": {
+      "runtime.win7-x64.runtime.native.System.IO.Compression/4.3.0": {
         "type": "package",
         "native": {
-          "runtimes/win7-x64/nativeassets/netcore50/clrcompression.dll": {}
+          "runtimes/win7-x64/native/clrcompression.dll": {}
         }
       },
       "runtime.win7.System.Private.Uri/4.3.0": {
@@ -10960,11 +11140,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -11339,7 +11519,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -12543,6 +12723,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-x64-aot": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -12722,7 +12947,7 @@
           "runtime.win7-x64.Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -12782,15 +13007,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -12880,7 +13096,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -13507,11 +13723,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -13886,7 +14102,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -15090,6 +15306,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-x86": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -15268,7 +15529,7 @@
           "runtime.win7-x86.Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -15328,15 +15589,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -15426,7 +15678,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -15616,7 +15868,7 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0",
-          "runtime.win7-x86.runtime.native.System.IO.Compression": "4.3.1"
+          "runtime.win7-x86.runtime.native.System.IO.Compression": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -15830,10 +16082,10 @@
           "runtimes/win7-x86/native/sos.dll": {}
         }
       },
-      "runtime.win7-x86.runtime.native.System.IO.Compression/4.3.1": {
+      "runtime.win7-x86.runtime.native.System.IO.Compression/4.3.0": {
         "type": "package",
         "native": {
-          "runtimes/win7-x86/nativeassets/netcore50/clrcompression.dll": {}
+          "runtimes/win7-x86/native/clrcompression.dll": {}
         }
       },
       "runtime.win7.System.Private.Uri/4.3.0": {
@@ -16018,11 +16270,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -16397,7 +16649,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -17601,6 +17853,51 @@
       }
     },
     "UAP,Version=v10.0.15063/win10-x86-aot": {
+      "Google.Apis/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.36.1",
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.36.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "10.0.2",
+          "System.Net.Http": "4.3.1",
+          "System.Reflection.TypeExtensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Google.Apis.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Linq.Queryable": "4.0.1"
+        },
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -17780,7 +18077,7 @@
           "runtime.win7-x86.Microsoft.NETCore.Runtime.CoreCLR": "1.0.2"
         }
       },
-      "Microsoft.NETCore.Targets/1.1.2": {
+      "Microsoft.NETCore.Targets/1.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -17840,15 +18137,6 @@
       },
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
-      },
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll": {}
-        }
       },
       "Microsoft.VisualBasic/10.0.1": {
         "type": "package",
@@ -17938,7 +18226,7 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/10.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
@@ -18565,11 +18853,11 @@
           "lib/netstandard1.0/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "System.Console/4.3.1": {
+      "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.2",
+          "Microsoft.NETCore.Targets": "1.1.0",
           "System.IO": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Text.Encoding": "4.3.0",
@@ -18944,7 +19232,7 @@
           "lib/netcore50/System.Linq.Queryable.dll": {}
         }
       },
-      "System.Net.Http/4.3.0": {
+      "System.Net.Http/4.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -20149,6 +20437,68 @@
     }
   },
   "libraries": {
+    "Google.Apis/1.36.1": {
+      "sha512": "NBfotn7kOSd1biulilvCu3CIWr5kI4gXBNGGZyvOgE+ilR06zTPY9kPSVblYUoYPsXFvouZOS8GYPhnpnAK/Zw==",
+      "type": "package",
+      "path": "google.apis/1.36.1",
+      "files": [
+        ".signature.p7s",
+        "google.apis.1.36.1.nupkg.sha512",
+        "google.apis.nuspec",
+        "lib/net45/Google.Apis.PlatformServices.dll",
+        "lib/net45/Google.Apis.dll",
+        "lib/net45/Google.Apis.pdb",
+        "lib/net45/Google.Apis.xml",
+        "lib/netstandard1.3/Google.Apis.dll",
+        "lib/netstandard1.3/Google.Apis.pdb",
+        "lib/netstandard1.3/Google.Apis.xml",
+        "lib/netstandard2.0/Google.Apis.dll",
+        "lib/netstandard2.0/Google.Apis.pdb",
+        "lib/netstandard2.0/Google.Apis.xml"
+      ]
+    },
+    "Google.Apis.Core/1.36.1": {
+      "sha512": "UVcewN+O3kQ0bJ+pSH10RLc2vMNmgBGetXGY9HQms3W0PXWqiIh2PioVggwrfLmL/6wYBJA9N3l+vA/C2yS0kw==",
+      "type": "package",
+      "path": "google.apis.core/1.36.1",
+      "files": [
+        ".signature.p7s",
+        "google.apis.core.1.36.1.nupkg.sha512",
+        "google.apis.core.nuspec",
+        "lib/net45/Google.Apis.Core.dll",
+        "lib/net45/Google.Apis.Core.pdb",
+        "lib/net45/Google.Apis.Core.xml",
+        "lib/netstandard1.3/Google.Apis.Core.dll",
+        "lib/netstandard1.3/Google.Apis.Core.pdb",
+        "lib/netstandard1.3/Google.Apis.Core.xml",
+        "lib/netstandard2.0/Google.Apis.Core.dll",
+        "lib/netstandard2.0/Google.Apis.Core.pdb",
+        "lib/netstandard2.0/Google.Apis.Core.xml"
+      ]
+    },
+    "Microsoft.Azure.Mobile.Client/4.0.2": {
+      "sha512": "BSjk8JkEpNPnkjCOCJ8NbLWjEUOuFzeGAX9yoUa0B/wUl5EbfSvtsTN56Y3NiKZTw0+VMpX1tvtcCJEy+86nOg==",
+      "type": "package",
+      "path": "microsoft.azure.mobile.client/4.0.2",
+      "files": [
+        ".signature.p7s",
+        "lib/monoandroid70/Microsoft.Azure.Mobile.Client.dll",
+        "lib/monoandroid70/Microsoft.Azure.Mobile.Client.xml",
+        "lib/net45/Microsoft.Azure.Mobile.Client.dll",
+        "lib/net45/Microsoft.Azure.Mobile.Client.xml",
+        "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.dll",
+        "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Microsoft.Azure.Mobile.Client.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Microsoft.Azure.Mobile.Client.xml",
+        "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll",
+        "lib/uap10.0/Microsoft.Azure.Mobile.Client.pri",
+        "lib/uap10.0/Microsoft.Azure.Mobile.Client.xml",
+        "lib/xamarinios10/Microsoft.Azure.Mobile.Client.dll",
+        "lib/xamarinios10/Microsoft.Azure.Mobile.Client.xml",
+        "microsoft.azure.mobile.client.4.0.2.nupkg.sha512",
+        "microsoft.azure.mobile.client.nuspec"
+      ]
+    },
     "Microsoft.CSharp/4.3.0": {
       "sha512": "FEHXDPeXoGD3PGQTHWmcsQlpYLCMLA+QtETEB989d62HJmo/qCVqGT5bCbaYRYVNbCPMeUyR2TjA745XNun/xw==",
       "type": "package",
@@ -22430,16 +22780,16 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.Targets/1.1.2": {
-      "sha512": "sMKGtk8YTUtU3xccxBJXZoDZxVUx+5pH63HbcU1b3LVjTRx5NtmUnbGIT94YHObK+ziccqovMN+L+J7JleJjmw==",
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "sha512": "t3TNy7WDwNWV3A9+DYvnx4mAYdyGQdap6lB6Da+XUA91hJnvjQb1hqPRjef+rDpE3/nV3eO2WcSiwR4oW/9MJg==",
       "type": "package",
-      "path": "microsoft.netcore.targets/1.1.2",
+      "path": "microsoft.netcore.targets/1.1.0",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.targets.1.1.2.nupkg.sha512",
+        "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
       ]
@@ -22736,27 +23086,6 @@
         "runtime.json"
       ]
     },
-    "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/4.0.0": {
-      "sha512": "nU13sOIGFIdQeUCRHLn34pKS0YnyYJ+P0IWUczTDsc7BGlXPgT0vzJS/FW2WzIvJ/8fdllN5WppAtGgsk8f/1Q==",
-      "type": "package",
-      "path": "microsoft.toolkit.uwp.ui.controls.datagrid/4.0.0",
-      "files": [
-        ".signature.p7s",
-        "lib/uap10.0/Design/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.Design.dll",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.pdb",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.pri",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xml",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid/DataGrid.xaml",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid/DataGrid.xbf",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/Themes/Generic.xaml",
-        "lib/uap10.0/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/Themes/Generic.xbf",
-        "microsoft.toolkit.uwp.ui.controls.datagrid.4.0.0.nupkg.sha512",
-        "microsoft.toolkit.uwp.ui.controls.datagrid.nuspec",
-        "tools/VisualStudioToolsManifest.xml"
-      ]
-    },
     "Microsoft.VisualBasic/10.0.1": {
       "sha512": "HpNyOf/4Tp2lh4FyywB55VITk0SqVxEjDzsVDDyF1yafDN6Bq18xcHowzCPINyYHUTgGcEtmpYiRsFdSo0KKdQ==",
       "type": "package",
@@ -22849,42 +23178,32 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.1": {
-      "sha512": "jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+    "Newtonsoft.Json/10.0.2": {
+      "sha512": "vcX8ci+srBr5scnSKCUNNoFo5BQ6KjdfeJ5LCJQhvxncNkTy7w3pAWsnRJrsF9WBBdMiaQp0aOa3YRh1CDCc7A==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.1",
+      "path": "newtonsoft.json/10.0.2",
       "files": [
         ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.pdb",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.pdb",
         "lib/net35/Newtonsoft.Json.xml",
         "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.pdb",
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.pdb",
         "lib/net45/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
-        "lib/netstandard1.0/Newtonsoft.Json.pdb",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.pdb",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.pdb",
-        "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.pdb",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.pdb",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.1.nupkg.sha512",
-        "newtonsoft.json.nuspec"
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wpa81+wp8/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.xml",
+        "newtonsoft.json.10.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "tools/install.ps1"
       ]
     },
     "runtime.any.System.Collections/4.3.0": {
@@ -24394,17 +24713,17 @@
         "runtimes/win10-arm64-aot/nativeassets/uap10.0.15138/clrcompression.dll"
       ]
     },
-    "runtime.win10-arm64.runtime.native.System.IO.Compression/4.3.1": {
-      "sha512": "j2w6QtkdIJ3+8/51FQDYaadupECs/k2OTiNYV6gYKvek9FGyuR7xUChwrf9GhSuBBp8Ao80OoKXA8NytiR9BXw==",
+    "runtime.win10-arm64.runtime.native.System.IO.Compression/4.3.0": {
+      "sha512": "hKIxqFOTaYF4XZUt/9adRzQ60kYUPRAC7/fvNBiBrOGztgfGJaMW/1GF3y8puQDga1kOYKAX8A2mbL2q/iVDgQ==",
       "type": "package",
-      "path": "runtime.win10-arm64.runtime.native.system.io.compression/4.3.1",
+      "path": "runtime.win10-arm64.runtime.native.system.io.compression/4.3.0",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
-        "runtime.win10-arm64.runtime.native.system.io.compression.4.3.1.nupkg.sha512",
+        "runtime.win10-arm64.runtime.native.system.io.compression.4.3.0.nupkg.sha512",
         "runtime.win10-arm64.runtime.native.system.io.compression.nuspec",
-        "runtimes/win10-arm64/native/clrcompression.dll"
+        "runtimes/win10-arm64/native/_._"
       ]
     },
     "runtime.win10-x64-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.2.2": {
@@ -25189,18 +25508,17 @@
         "tools/crossgen.exe"
       ]
     },
-    "runtime.win7-x64.runtime.native.System.IO.Compression/4.3.1": {
-      "sha512": "s2mZZoibYNYZosoz4oK3oiB/2A/XOUdpvcw8TO0Ont8tTAsT7cBXDC9CvML45NNlqLF/LT86jZEc2lXO2EOMfw==",
+    "runtime.win7-x64.runtime.native.System.IO.Compression/4.3.0": {
+      "sha512": "iS0XkUWPmjkBpyYwr4oqo/+tgn2pCryozKnJctIC+AnmJJ644GpLeb9hoJ+2BYnpI8UqilMAJ03gRVeqKZKyrA==",
       "type": "package",
-      "path": "runtime.win7-x64.runtime.native.system.io.compression/4.3.1",
+      "path": "runtime.win7-x64.runtime.native.system.io.compression/4.3.0",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
-        "runtime.win7-x64.runtime.native.system.io.compression.4.3.1.nupkg.sha512",
+        "runtime.win7-x64.runtime.native.system.io.compression.4.3.0.nupkg.sha512",
         "runtime.win7-x64.runtime.native.system.io.compression.nuspec",
-        "runtimes/win7-x64/native/clrcompression.dll",
-        "runtimes/win7-x64/nativeassets/netcore50/clrcompression.dll"
+        "runtimes/win7-x64/native/clrcompression.dll"
       ]
     },
     "runtime.win7-x86.Microsoft.NETCore.Jit/1.0.3": {
@@ -25243,18 +25561,17 @@
         "tools/crossgen.exe"
       ]
     },
-    "runtime.win7-x86.runtime.native.System.IO.Compression/4.3.1": {
-      "sha512": "7bzhuZ4nMZS40+MkJR8s4zgHEpqCSHu8ti7lnnlLtJEoJoPnO8YJkWEzFgjE0JSV534p0fA+Afd+iB7fUeOEnQ==",
+    "runtime.win7-x86.runtime.native.System.IO.Compression/4.3.0": {
+      "sha512": "XXVNSdLTvWe5jsV24/Td84fiCQO9bnOoDT8HbjXR8+dhwnuaclLBlTFoIxOeHJDr4VGOwyIq1wXV4GuDI+MF5A==",
       "type": "package",
-      "path": "runtime.win7-x86.runtime.native.system.io.compression/4.3.1",
+      "path": "runtime.win7-x86.runtime.native.system.io.compression/4.3.0",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
-        "runtime.win7-x86.runtime.native.system.io.compression.4.3.1.nupkg.sha512",
+        "runtime.win7-x86.runtime.native.system.io.compression.4.3.0.nupkg.sha512",
         "runtime.win7-x86.runtime.native.system.io.compression.nuspec",
-        "runtimes/win7-x86/native/clrcompression.dll",
-        "runtimes/win7-x86/nativeassets/netcore50/clrcompression.dll"
+        "runtimes/win7-x86/native/clrcompression.dll"
       ]
     },
     "runtime.win7.System.Private.Uri/4.3.0": {
@@ -25301,18 +25618,17 @@
         "tools/sos.dll"
       ]
     },
-    "runtime.win8-arm.runtime.native.System.IO.Compression/4.3.1": {
-      "sha512": "nLhBgVofHqbnfGvyB3f5P+/BexeqqLj6OOMBipRSmfpQrH373HQgxFz256C0h7/prLhbwHihPHhJzijiCw72Fw==",
+    "runtime.win8-arm.runtime.native.System.IO.Compression/4.3.0": {
+      "sha512": "JuBzZJ9sQIm+uGFlPexJP16jtwRzw2vMk4fpkC/JvG+xvLSIA7txtUMfpMbroC1dXnNRqd4u4kbzs6n7Fja/nA==",
       "type": "package",
-      "path": "runtime.win8-arm.runtime.native.system.io.compression/4.3.1",
+      "path": "runtime.win8-arm.runtime.native.system.io.compression/4.3.0",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
-        "runtime.win8-arm.runtime.native.system.io.compression.4.3.1.nupkg.sha512",
+        "runtime.win8-arm.runtime.native.system.io.compression.4.3.0.nupkg.sha512",
         "runtime.win8-arm.runtime.native.system.io.compression.nuspec",
-        "runtimes/win8-arm/native/clrcompression.dll",
-        "runtimes/win8-arm/nativeassets/netcore50/clrcompression.dll"
+        "runtimes/win8-arm/native/clrcompression.dll"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -25898,10 +26214,10 @@
         "system.componentmodel.typeconverter.nuspec"
       ]
     },
-    "System.Console/4.3.1": {
-      "sha512": "Lzmp2asb9pf+JKYeBcJmHAVtLEW7amwiTGHLU/XhAn/Xm4iQ9i8h5Q/dGcpWkLwmHnwIaHCO3MAPnIbG/U13Cw==",
+    "System.Console/4.3.0": {
+      "sha512": "NXaPmAD2UQOwcXA0CdsTCi1g/BUmuxwwGok2guCrS/pLpAv79v5TQLWYPnUoysNbn3p8v1WLguJHLMa782C5Yw==",
       "type": "package",
-      "path": "system.console/4.3.1",
+      "path": "system.console/4.3.0",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
@@ -25931,7 +26247,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.console.4.3.1.nupkg.sha512",
+        "system.console.4.3.0.nupkg.sha512",
         "system.console.nuspec"
       ]
     },
@@ -27127,10 +27443,10 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "System.Net.Http/4.3.0": {
-      "sha512": "Z1UfSF6dlpCdZdxh6LeoGlYH+q6ptG/iiIWgUUeKhE3DbQACmZkU7Sz2nOX0qdHjz72MOdYRbkSJ5Qwl6sZgvg==",
+    "System.Net.Http/4.3.1": {
+      "sha512": "3xaqe2VLsX2ZnAGM5zEAztnbHMglctO6O0Al8seMxyfQ8VLndP6nODCgKt3pVkZ90Z58YVXZmY0u7jPJhprW2A==",
       "type": "package",
-      "path": "system.net.http/4.3.0",
+      "path": "system.net.http/4.3.1",
       "files": [
         ".signature.p7s",
         "ThirdPartyNotices.txt",
@@ -27204,7 +27520,7 @@
         "runtimes/win/lib/net46/System.Net.Http.dll",
         "runtimes/win/lib/netcore50/System.Net.Http.dll",
         "runtimes/win/lib/netstandard1.3/System.Net.Http.dll",
-        "system.net.http.4.3.0.nupkg.sha512",
+        "system.net.http.4.3.1.nupkg.sha512",
         "system.net.http.nuspec"
       ]
     },
@@ -30409,10 +30725,9 @@
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.15063": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.2",
-      "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid >= 4.0.0",
-      "Newtonsoft.Json >= 12.0.1",
-      "System.Console >= 4.3.1"
+      "Google.Apis >= 1.36.1",
+      "Microsoft.Azure.Mobile.Client >= 4.0.2",
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.2"
     ]
   },
   "packageFolders": {
@@ -30422,11 +30737,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dylan's PC\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Dylan's PC\\Desktop\\361Project-Ramiz\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "projectName": "COMPE361_Project",
-      "projectPath": "C:\\Users\\Dylan's PC\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectPath": "C:\\Users\\Dylan's PC\\Desktop\\361Project-Ramiz\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "packagesPath": "C:\\Users\\Dylan's PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dylan's PC\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\obj\\",
+      "outputPath": "C:\\Users\\Dylan's PC\\Desktop\\361Project-Ramiz\\COMPE361_Project\\COMPE361_Project\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -30452,21 +30767,17 @@
     "frameworks": {
       "uap10.0.15063": {
         "dependencies": {
+          "Google.Apis": {
+            "target": "Package",
+            "version": "[1.36.1, )"
+          },
+          "Microsoft.Azure.Mobile.Client": {
+            "target": "Package",
+            "version": "[4.0.2, )"
+          },
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.2, )"
-          },
-          "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid": {
-            "target": "Package",
-            "version": "[4.0.0, )"
-          },
-          "Newtonsoft.Json": {
-            "target": "Package",
-            "version": "[12.0.1, )"
-          },
-          "System.Console": {
-            "target": "Package",
-            "version": "[4.3.1, )"
           }
         }
       }

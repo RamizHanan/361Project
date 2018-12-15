@@ -22,31 +22,23 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class EmployeeClock : Page
     {
-        public UserData Data { get; set; }
         public EmployeeClock()
         {
             this.InitializeComponent();
-            //if (Data.DataSet.Any())
-            //{
-            //    if(Data.DataSet.Count > 10)
-            //    {
-            //        for(int i = Data.DataSet.Count - 10; i < Data.DataSet.Count; i++)
-            //        {
-            //            Recent_Clocked_Times.Items.Add(Data.DataSet[i]);
-            //        }
-            //    }
-            //    for (int i = 0; i < Data.DataSet.Count; i++)
-            //    {
-            //        Recent_Clocked_Times.Items.Add(Data.DataSet[i]);
-            //    }
-            //}
         }
         private void ClockIn(object sender, RoutedEventArgs e)
         {
-            Data.DataSet.Add(new ClockInfo("Clocked In", DateTime.Now.ToString("h:mm:ss tt")));
-            Recent_Clocked_Times.Items.Add(new ClockInfo("Clocked In", DateTime.Now.ToString("h:mm:ss tt")));
+            StatusBox.Text = $"Clocked In at {DateTime.Now.ToString("h:mm:ss tt")}";
         }
         private void ClockOut(object sender, RoutedEventArgs e)
+        {
+            StatusBox.Text = $"Clocked Out at {DateTime.Now.ToString("h:mm:ss tt")}";
+        }
+        private void LunchIn(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void LunchOut(object sender, RoutedEventArgs e)
         {
 
         }
