@@ -22,6 +22,7 @@
             </Border>
             <ScrollBar HorizontalAlignment="Left" Height="990" Margin="1478,0,0,0" VerticalAlignment="Top" Width="22"/>
             <ScrollBar HorizontalAlignment="Center" Height="23" Margin="0,978,0,0" VerticalAlignment="Top" Width="1501"/>
+            <TextBlock x:Name="Error" HorizontalAlignment="Left" Margin="541,659,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FocusVisualPrimaryBrush="#FFFF0202" Height="74" Width="176" FontSize="20"/>
         </Grid>
     </Viewbox>
 </Page>

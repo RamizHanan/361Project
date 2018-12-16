@@ -14,7 +14,7 @@
             <ColumnDefinition Width="Auto" MinWidth="179" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Button x:Name="SaveButton" Content="Save&#xD;&#xA;" VerticalAlignment="Top" Margin="0,8,0,0" Click="SaveButton_Click" HorizontalAlignment="Center" Height="52" Width="161"/>
+        <Button x:Name="SaveButton" Content="Add Employee&#xD;&#xA;" VerticalAlignment="Top" Margin="0,8,0,0" Click="SaveButton_Click" HorizontalAlignment="Center" Height="52" Width="161"/>
         <TextBox x:Name="Username" HorizontalAlignment="Left" Text="Enter Name Here" VerticalAlignment="Top" Margin="174,24,0,0" Grid.Column="1" Height="32" Width="134"/>
         <TextBox x:Name="Password" HorizontalAlignment="Left" Text="Enter Password Here" VerticalAlignment="Top" Grid.Column="1" Margin="386,24,0,0" Height="32" Width="156"/>
         <TextBlock x:Name="First" Grid.Column="1" HorizontalAlignment="Left" Margin="45,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
@@ -29,7 +29,7 @@
         <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Left" Margin="173,255,0,0" Text="" VerticalAlignment="Top" Width="275" Height="32"/>
         <TextBox x:Name="EmployeeType" Grid.Column="1" HorizontalAlignment="Left" Margin="173,333,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
         <TextBox x:Name="EmailAddress" Grid.Column="1" HorizontalAlignment="Left" Margin="173,411,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
-        <Button x:Name="LoadButton" Content="Load&#xD;&#xA;" VerticalAlignment="Top" Margin="0,68,0,0" Click="LoadButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
+        <Button x:Name="LoadButton" Content="Load Employee Info&#xD;&#xA;" VerticalAlignment="Top" Margin="0,68,0,0" Click="LoadButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
         <TextBlock x:Name="First_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="45,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="TestStatus" Grid.Column="1" HorizontalAlignment="Left" Margin="833.8,40,0,0" Text="TextBox" VerticalAlignment="Top"/>
     </Grid>

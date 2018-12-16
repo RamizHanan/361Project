@@ -20,12 +20,19 @@ using System.Text;
 using Windows.Storage.Streams;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using System.Threading;
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace COMPE361_Project
 {
     public sealed partial class LoginPage : Page
     {
+        string employeeEmail;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -169,9 +176,31 @@ namespace COMPE361_Project
             output("Making API Call to Userinfo...");
             HttpResponseMessage userinfoResponse = client.GetAsync(userInfoEndpoint).Result;
             string userinfoResponseContent = await userinfoResponse.Content.ReadAsStringAsync();
-           // output(userinfoResponseContent);
-            this.Frame.Navigate(typeof(PayrollSystem));
 
+            //Get email from JSON
+            JObject employeeInfo = JObject.Parse(userinfoResponseContent);
+            employeeEmail = (string)employeeInfo["email"];
+
+            CheckIfEmployeeExists();
+            if (employeeExists)
+            {
+                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject employeeList = JObject.Parse(employeeListString);
+
+                JObject employeeTarget = (JObject)employeeList[employeeEmail];
+                string EmployeeJSON = employeeTarget.ToString();
+                
+                var employeeParameter = new ProgramParams();
+                Employee foundEmployee = new Employee();
+                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                employeeParameter.FoundEmployee = foundEmployee;
+
+                this.Frame.Navigate(typeof(PayrollSystem), employeeParameter);
+            }
+            else
+            {
+                Error.Text = "Employee does not exist";
+            }
         }
 
         /// <summary>
@@ -230,5 +259,162 @@ namespace COMPE361_Project
         {
             if (e.Key == Windows.System.VirtualKey.Enter) this.Login_Click(sender, e);
         }
+
+
+        //Start of PASTED CODE
+
+
+        //Create temporary files
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        public bool employeeExists = true;
+
+        /*
+        public async void AddEmployee(string username, string password, Employee newEmployee)
+        {
+            //Check if employee already exists
+            CheckIfEmployeeExists(username, password);
+
+            //If employee doesn't exist
+            if (!employeeExists)
+            {
+                //Make JSON string from dictionary
+                string newEmployeeJSON = CreateEmployeeJSON(username, password, newEmployee);
+
+                //Write to employee JSON
+                WriteToJSON(newEmployeeJSON);
+
+                //**Write Employee Successfully Added**
+                TestStatus.Text = "SUCCESS - EMPLOYEE ADDED";
+
+            }
+            //If employee already exists
+            else
+                TestStatus.Text = "ERROR - EMPLOYEE ALREADY EXISTS";
+        }
+        */
+
+        /*
+        public async void WriteToJSON(string newJSON)
+        {
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            if (newFile == "")
+                newFile = newJSON;
+            else
+            {
+                newFile = newFile.Remove(newFile.Length - 1, 1);
+                newJSON = newJSON.Remove(0, 1);
+                newJSON = newJSON.Remove(newJSON.Length - 1, 1);
+                newFile = newFile + ',' + newJSON + '}';
+            }
+            await Windows.Storage.FileIO.WriteTextAsync(employeeFile, newFile);
+        }
+        */
+        
+        public async void CheckIfEmployeeExists()
+        {
+            ReadFile();
+            string employeeList = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+
+            //Check for empty file
+            if (employeeList == "") employeeExists = false;
+            else
+            {
+
+                //Check if employee already exists
+                JObject employeeChecker = JObject.Parse(employeeList);
+
+                //If employee does not exist
+                try
+                {
+                    if (employeeChecker[employeeEmail] == null) employeeExists = false;
+                    else employeeExists = true;
+                }
+                catch { employeeExists = false; }
+            }
+        }
+        
+        public async void ReadFile()
+        {
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+        }
+        
+
+        /*
+        public string CreateEmployeeJSON(string username, string password, Employee newEmployee)
+        {
+            //Create employee dictionary
+            Dictionary<string, Employee> tempEmployee = new Dictionary<string, Employee>
+                {
+                    { password, newEmployee }
+                };
+            Dictionary<string, Dictionary<string, Employee>> newEmployeeDictionary = new Dictionary<string, Dictionary<string, Employee>>
+                {
+                    { username, tempEmployee }
+                };
+
+            //Make JSON string from dictionary
+            return JsonConvert.SerializeObject(newEmployeeDictionary, Formatting.Indented);
+        }
+        */
+
+        /*
+        public Employee CreateEmployee()
+        {
+            Employee employee = new Employee();
+            employee.FirstName = FirstName.Text;
+            employee.LastName = LastName.Text;
+            employee.CellNumber = PhoneNumber.Text;
+            employee.EmailAddress = EmailAddress.Text;
+            return employee;
+        }
+        */
+
+        //Create new employee
+        /*
+        private async void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = CreateEmployee();
+            AddEmployee(Username.Text, Password.Text, employee);
+        }
+        */
+
+        //Loads employee data
+        /*
+        private async void LoadButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReadFile();
+            CheckIfEmployeeExists(Username.Text, Password.Text);
+            if (!employeeExists) TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST";
+            else
+            {
+                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject employeeList = JObject.Parse(employeeListString);
+
+                //NEW
+                JObject employeeTarget = (JObject)employeeList[Username.Text][Password.Text];
+                string EmployeeJSON = employeeTarget.ToString();
+
+                //Taken out temporarily
+                //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
+
+                Employee foundEmployee = new Employee();
+                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                FirstName.Text = foundEmployee.FirstName;
+                LastName.Text = foundEmployee.LastName;
+                EmailAddress.Text = foundEmployee.EmailAddress;
+                PhoneNumber.Text = foundEmployee.CellNumber;
+                TestStatus.Text = "SUCCESS - EMPLOYEE FOUND";
+            }
+        }
+        */
+
+
+
+
+
+
+
     }
 }
