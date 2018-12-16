@@ -20,8 +20,10 @@ namespace COMPE361_Project
         public bool IsAdmin { get; set; }
         public bool IsManager { get; set; }
         public bool IsClockedIn { get; set; }
-        public string[] DatesAndTimes { get; set; }
-        //DateTime LastClockIn;
-        //DateTime LastClockOut;
+        public bool IsOnLunch { get; set; }
+        public string[] ClockIn { get; set; }
+        public string[] ClockOut { get; set; }
+        public string[] LunchIn { get; set; }
+        public string[] LunchOut { get; set; }
     }
 }

@@ -8,13 +8,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
+        <Image Source="Assets/background2.jpg" Stretch="UniformToFill" Margin="6,0,-6,0"/>
         <RelativePanel Background="White" VerticalAlignment="Stretch" Height="500" Width="1000" HorizontalAlignment="Stretch">
             <Button Click="ClockIn" Content="Clock In" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" Height="100" Width="175" FontSize="36"/>
             <Button Click="ClockOut" Content="Clock Out" FontSize="36" RelativePanel.AlignRightWithPanel="True" Height="100" Width="175"/>
             <Button Click="LunchOut" Content="Lunch Clock Out" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" FontSize="36" Height="100" Width="300"/>
             <Button Click="LunchIn" Content="Lunch Clock In" RelativePanel.AlignBottomWithPanel="True" FontSize="36" Height="100" Width="300"/>
             <TextBlock Name="StatusBox" FontSize="36" FontWeight="Bold" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <TextBlock Name="ErrorBox" FontSize="20" HorizontalAlignment="Left" Height="50" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="503" Margin="264,10,0,0"/>
         </RelativePanel>
     </Grid>
 </Page>
