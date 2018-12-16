@@ -71,7 +71,7 @@ namespace COMPE361_Project
             JArray employee = (JArray)json[receivedEmployee.EmailAddress]["DatesAndTimes"];
             string[] employeeDatesAndTimes = JsonConvert.DeserializeObject<string[]>(employee.ToString());
             employeeDatesAndTimes[employeeDatesAndTimes.Length] = newDateAndTime;
-            JArray update = JsonConvert.SerializeObject(employeeDatesAndTimes);
+            //JArray update = JsonConvert.SerializeObject(employeeDatesAndTimes);
         }
 
 
