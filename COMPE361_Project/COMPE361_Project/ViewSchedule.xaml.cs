@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,10 +27,33 @@ namespace COMPE361_Project
         {
             this.InitializeComponent();
         }
-        private void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        bool working = true;
+        private async void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
         {
+            ReadFile();
+            string employeeScheduleString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            JObject scheduleChecker = JObject.Parse(employeeScheduleString);
 
-       //     Schedule.Items.Add(new ListViewItem { Content =  });
+            try
+            {
+                if (scheduleChecker[Schedule] == null) working = false;
+                else working = true;
+            }
+            catch
+            {
+                working = false;
+            }
+            //testing with my email first
+            string shift = $"{scheduleChecker["albertrafou@gmail.com"]["Schedule"]} ";
+            Schedule.Items.Add(new ListViewItem { Content = $"{shift}" });
+            
+        }
+
+        public async void ReadFile()
+        {
+            employeeFile = await storageFolder.GetFileAsync("testEmployeeFileWrite.json");
         }
     }
 }
