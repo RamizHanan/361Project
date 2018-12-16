@@ -29,7 +29,7 @@ namespace COMPE361_Project
         private void DateSelected(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
         {
             DatesRequested.Items.Clear();
-            foreach(DateTimeOffset date in DateSelector.SelectedDates)
+            foreach (DateTimeOffset date in DateSelector.SelectedDates)
             {
                 DatesRequested.Items.Add(date.ToString("MM/dd/yyyy"));
             }
@@ -41,7 +41,6 @@ namespace COMPE361_Project
         private void Send(object sender, RoutedEventArgs e)
         {
             Status.Text = "Request Successful";
-            //...
         }
     }
 }

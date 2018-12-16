@@ -26,5 +26,13 @@ namespace COMPE361_Project
         {
             this.InitializeComponent();
         }
+        private void Denied(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Granted(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

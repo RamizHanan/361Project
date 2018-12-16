@@ -10,7 +10,7 @@
 
     <Grid>
         <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
-        <SplitView DisplayMode="Inline" IsPaneOpen="True">
+        <SplitView DisplayMode="Inline" PanePlacement="Right" IsPaneOpen="True">
             <SplitView.Pane>
                 <ListView Name="Employees" Background="White">
                     <ListViewHeaderItem Content="Employees"/>

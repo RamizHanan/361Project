@@ -196,6 +196,7 @@ namespace COMPE361_Project
                 employeeParameter.FoundEmployee = foundEmployee;
 
                 this.Frame.Navigate(typeof(PayrollSystem), employeeParameter);
+                
             }
             else
             {

@@ -31,6 +31,7 @@ namespace COMPE361_Project
         public string Address { get; set; }
         public bool IsAdmin { get; set; }
         public bool IsManager { get; set; }
+        public string employeeType { get; set; }
         public DateTime ClockIn { get; set; }
 
         public override string ToString()

@@ -66,7 +66,7 @@ namespace COMPE361_Project
         {
             var sendEmployee = new ProgramParams();
             sendEmployee.FoundEmployee = employee.FoundEmployee;
-            if (manager == true || admin == true) Content.Navigate(typeof(ManagePTO), sendEmployee);
+            if (employee.FoundEmployee.IsManager || employee.FoundEmployee.IsAdmin) Content.Navigate(typeof(ManagePTO), sendEmployee);
             else Content.Navigate(typeof(PTORequest), sendEmployee);
         }
         private void Manage_Employee(object sender, RoutedEventArgs e)
