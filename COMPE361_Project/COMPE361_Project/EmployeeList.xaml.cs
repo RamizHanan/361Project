@@ -64,7 +64,7 @@ namespace COMPE361_Project
             if (!employeeExists)
             {
                 //Make JSON string from dictionary
-                string newEmployeeJSON = CreateEmployeeJSON(username, password, newEmployee);
+                string newEmployeeJSON = CreateEmployeeJSON(username, newEmployee);
 
                 //Write to employee JSON
                 WriteToJSON(newEmployeeJSON);
@@ -127,20 +127,16 @@ namespace COMPE361_Project
             //employeeFile = await storageFolder.GetFileAsync("testEmployeeFileWrite.json");
         }
 
-        public string CreateEmployeeJSON(string username, string password, Employee newEmployee)
+        public string CreateEmployeeJSON(string username, Employee newEmployee)
         {
             //Create employee dictionary
             Dictionary<string, Employee> tempEmployee = new Dictionary<string, Employee>
                 {
-                    { password, newEmployee }
-                };
-            Dictionary<string, Dictionary<string, Employee>> newEmployeeDictionary = new Dictionary<string, Dictionary<string, Employee>>
-                {
-                    { username, tempEmployee }
+                    { username, newEmployee }
                 };
 
             //Make JSON string from dictionary
-            return JsonConvert.SerializeObject(newEmployeeDictionary, Formatting.Indented);
+            return JsonConvert.SerializeObject(tempEmployee, Formatting.Indented);
         }
 
         public Employee CreateEmployee()
@@ -172,7 +168,7 @@ namespace COMPE361_Project
                 JObject employeeList = JObject.Parse(employeeListString);
 
                 //NEW
-                JObject employeeTarget = (JObject)employeeList[Username.Text][Password.Text];
+                JObject employeeTarget = (JObject)employeeList[Username.Text];
                 string EmployeeJSON = employeeTarget.ToString();
 
                 //Taken out temporarily
