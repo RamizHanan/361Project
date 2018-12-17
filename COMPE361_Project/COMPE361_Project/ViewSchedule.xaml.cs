@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,29 +31,39 @@ namespace COMPE361_Project
         }
         Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         Windows.Storage.StorageFile employeeFile;
-        bool working = true;
         private async void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
         {
+            //retreives selected date and converts to string in order to view schedule for that day
+            var myDate = e.AddedDates.First();
+            string selectedDate = myDate.ToString();
+            string truncatedSelectedDate = new string(selectedDate.Take(10).ToArray());
+
             ReadFile();
+
+            //Deserialize from json
             string employeeScheduleString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
             JObject scheduleChecker = JObject.Parse(employeeScheduleString);
+            JArray schedules = (JArray)scheduleChecker["albertrafou@gmail.com"]["Schedule"];
+            List<string> employeeSchedule = JsonConvert.DeserializeObject<List<string>>(schedules.ToString());
 
-            try
+
+            //search for selected date within json
+            for (int i = 0; i < employeeSchedule.Count; i++)
             {
-                if (scheduleChecker[Schedule] == null) working = false;
-                else working = true;
+                if (employeeSchedule[i].Contains(truncatedSelectedDate))
+                {
+                    Schedule.Items.Add(new ListViewItem { Content = $"{employeeSchedule[i]}" });
+                    break;
+                }
+                else if (i == employeeSchedule.Count - 1)
+                {
+                    Schedule.Items.Add(new ListViewItem { Content = "Not working" });
+                }
             }
-            catch
-            {
-                working = false;
-            }
-            //testing with my email first
-            string shift = $"{scheduleChecker["albertrafou@gmail.com"]["Schedule"]} ";
-            Schedule.Items.Add(new ListViewItem { Content = $"{shift}" });
-            
         }
 
-        public async void ReadFile()
+
+            public async void ReadFile()
         {
             employeeFile = await storageFolder.GetFileAsync("testEmployeeFileWrite.json");
         }
