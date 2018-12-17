@@ -13,12 +13,14 @@
 
         <SplitView DisplayMode="Inline" PanePlacement="Right" IsPaneOpen="True">
             <SplitView.Pane>
-                <ListView Name="Employees" Background="White" SelectionChanged="Employees_SelectionChanged">
+
+                <ListView Name="Employees" Background="White" SelectionChanged="Employees_SelectionChanged" SelectionMode="None" IsItemClickEnabled="False" HorizontalAlignment="Left" Width="337" Margin="-2,0,0,0">
                     <ListViewHeaderItem Content="Employees"/>
                 </ListView>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid>
+
+                <Grid HorizontalAlignment="Stretch" Margin="0,0,348,0" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="244" />
                         <ColumnDefinition />
@@ -40,6 +42,10 @@
                     <TextBlock x:Name="FirstNameText" Grid.Column="1" HorizontalAlignment="Left" Margin="45,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
                     <TextBox x:Name="TestStatus" HorizontalAlignment="Center" Margin="0,235,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="39"/>
                     <Button x:Name="UpdateButton" Content="&#xD;&#xA;Update&#xD;&#xA;" VerticalAlignment="Top" Margin="0,128,0,0" Click="UpdateButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
+                    <ListView
+                        Name="EmployeeEmails" Background="White" ItemClick="Employees_ItemClick" SelectionMode="Single" IsItemClickEnabled="True" Grid.Column="1" Margin="632,2,-335,-2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListViewHeaderItem Content="Select To Edit"/>
+                    </ListView>
                 </Grid>
             </SplitView.Content>
         </SplitView>

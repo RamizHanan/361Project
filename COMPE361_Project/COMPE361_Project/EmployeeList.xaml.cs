@@ -41,8 +41,9 @@ namespace COMPE361_Project
             List<string> employees = JsonConvert.DeserializeObject<List<string>>(employeeList.ToString());
        
             for(int i = 0; i < employees.Count; i ++) {
-                //Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"] });
-                Employees.Items.Add(new ListViewItem { Content = employees[i] });
+                Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"], Tag = "test" });
+                EmployeeEmails.Items.Add(new ListViewItem { Content = employees[i], Tag = "test" });
+
             }
 
         }
@@ -229,20 +230,20 @@ namespace COMPE361_Project
 
             }
 
-            private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-            {
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
-            }
+        }
 
-            private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
-            {
+        private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+        {
 
-            }
+        }
 
-            private void First_Copy1_SelectionChanged(object sender, RoutedEventArgs e)
-            {
+        private void First_Copy1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
 
-            }
+        }
 
         private void Username_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -251,6 +252,36 @@ namespace COMPE361_Project
 
         private void Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void EmployeeEmails_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+        private async void Employees_ItemClick(object sender, ItemClickEventArgs e) {
+            string email = e.ClickedItem.ToString();
+
+            string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            JObject employeeList = JObject.Parse(employeeListString);
+
+            //NEW
+            JObject employeeTarget = (JObject)employeeList[email];
+
+            string EmployeeJSON = employeeTarget.ToString();
+
+            //Taken out temporarily
+            //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
+
+            Employee foundEmployee = new Employee();
+            Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+            FirstName.Text = foundEmployee.FirstName;
+            LastName.Text = foundEmployee.LastName;
+            Username.Text = foundEmployee.EmailAddress;
+            PhoneNumber.Text = foundEmployee.CellNumber;
+            Address.Text = foundEmployee.Address;
 
         }
     }
