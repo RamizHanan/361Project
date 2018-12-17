@@ -10,17 +10,21 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="497*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
-        <SplitView DisplayMode="Inline" PanePlacement="Right" IsPaneOpen="True">
+        <SplitView DisplayMode="Inline" PanePlacement="Right" IsPaneOpen="True" Margin="-10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <SplitView.Pane>
 
-                <ListView Name="Employees" Background="White" SelectionChanged="Employees_SelectionChanged" SelectionMode="None" IsItemClickEnabled="False" HorizontalAlignment="Left" Width="337" Margin="-2,0,0,0">
-                    <ListViewHeaderItem Content="Employees"/>
+                <ListView Name="Employees" Background="White" SelectionChanged="Employees_SelectionChanged" SelectionMode="None" IsItemClickEnabled="False" HorizontalAlignment="Left" Width="323" Margin="0,4,0,10" VerticalAlignment="Stretch">
+                    <ListViewHeaderItem Content="Employees" Margin="0,0,0,0" Height="54" Width="157" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </ListView>
             </SplitView.Pane>
             <SplitView.Content>
 
-                <Grid HorizontalAlignment="Stretch" Margin="0,0,348,0" VerticalAlignment="Stretch">
+                <Grid Margin="0,10,-320,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="244" />
                         <ColumnDefinition />
@@ -37,14 +41,14 @@
                     <TextBox x:Name="LastName" Grid.Column="1" HorizontalAlignment="Left" Margin="173,79,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
                     <TextBox x:Name="PhoneNumber" Grid.Column="1" HorizontalAlignment="Left" Margin="173,145,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
                     <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Left" Margin="173,185,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="49"/>
-                    <TextBox x:Name="EmployeeType" Grid.Column="1" HorizontalAlignment="Left" Margin="173,267,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
+                    <TextBox x:Name="EmpType" Grid.Column="1" HorizontalAlignment="Left" Margin="173,267,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
                     <Button x:Name="LoadButton" Content="&#xD;&#xA;Load Employee Info&#xD;&#xA;" VerticalAlignment="Top" Margin="0,68,0,0" Click="LoadButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
                     <TextBlock x:Name="FirstNameText" Grid.Column="1" HorizontalAlignment="Left" Margin="45,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
                     <TextBox x:Name="TestStatus" HorizontalAlignment="Center" Margin="0,235,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="39"/>
                     <Button x:Name="UpdateButton" Content="&#xD;&#xA;Update&#xD;&#xA;" VerticalAlignment="Top" Margin="0,128,0,0" Click="UpdateButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
                     <ListView
-                        Name="EmployeeEmails" Background="White" ItemClick="Employees_ItemClick" SelectionMode="Single" IsItemClickEnabled="True" Grid.Column="1" Margin="632,2,-335,-2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <ListViewHeaderItem Content="Select To Edit"/>
+                        Name="EmployeeEmails" Background="White" ItemClick="Employees_ItemClick" SelectionMode="Single" IsItemClickEnabled="True" Grid.Column="1" Margin="568,0,346,10">
+                        <ListViewHeaderItem Content="   Select To Edit" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="181"/>
                     </ListView>
                 </Grid>
             </SplitView.Content>

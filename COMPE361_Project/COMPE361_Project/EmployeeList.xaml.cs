@@ -13,7 +13,7 @@ namespace COMPE361_Project
         public EmployeeList()
         {
             this.InitializeComponent();
-            newFunction();
+            displayEmployeeList();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -28,7 +28,7 @@ namespace COMPE361_Project
             //Schedule.Items.Add(new ListViewItem { Content =  });
         }
 
-        public async void newFunction()
+        public async void displayEmployeeList()
         {
             //get json into string
             employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
@@ -41,8 +41,9 @@ namespace COMPE361_Project
             List<string> employees = JsonConvert.DeserializeObject<List<string>>(employeeList.ToString());
        
             for(int i = 0; i < employees.Count; i ++) {
-                Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"], Tag = "test" });
+                Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"]});
                 EmployeeEmails.Items.Add(new ListViewItem { Content = employees[i], Tag = "test" });
+                
 
             }
 
@@ -87,10 +88,14 @@ namespace COMPE361_Project
                 //**Write Employee Successfully Added**
                 TestStatus.Text = "SUCCESS - EMPLOYEE ADDED";
 
+                
+
             }
             //If employee already exists
             else
                 TestStatus.Text = "ERROR - EMPLOYEE ALREADY EXISTS";
+
+
         }
 
         public async void WriteToJSON(string newJSON)
@@ -162,9 +167,24 @@ namespace COMPE361_Project
 
             //access employees
             json[email]["FirstName"] = FirstName.Text;
+            json[email]["LastName"] = LastName.Text;
+            json[email]["CellNumber"] = PhoneNumber.Text;
+            json[email]["Address"] = Address.Text;
+            json[email]["employeeType"] = EmpType.Text;
+            //Dont Do this
+            // json[email]["EmailAddress"] = Username.Text; 
+            // json[email]["IsAdmin"] = isAdmin.Text;
 
             //update json
             await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());
+            //update EmployeeList
+            //Employees.ItemsSource = null;
+            //EmployeeEmails.ItemsSource = null;
+            Employees.Items.Clear();
+            Employees.Header = "Employees";
+            EmployeeEmails.Items.Clear();
+            EmployeeEmails.Header = "Select To Edit";
+            displayEmployeeList();
         }
         public Employee CreateEmployee()
         {
@@ -262,26 +282,31 @@ namespace COMPE361_Project
 
 
         private async void Employees_ItemClick(object sender, ItemClickEventArgs e) {
-            string email = e.ClickedItem.ToString();
+            string email = "";
 
-            string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-            JObject employeeList = JObject.Parse(employeeListString);
+            if (e.ClickedItem.ToString() != "Windows.UI.Xaml.Controls.ListViewHeaderItem")
+            {
+                email = e.ClickedItem.ToString();
+                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject employeeList = JObject.Parse(employeeListString);
 
-            //NEW
-            JObject employeeTarget = (JObject)employeeList[email];
+                //NEW
+                JObject employeeTarget = (JObject)employeeList[email];
+                string EmployeeJSON = employeeTarget.ToString();
 
-            string EmployeeJSON = employeeTarget.ToString();
+                //Taken out temporarily
+                //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
 
-            //Taken out temporarily
-            //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
+                Employee foundEmployee = new Employee();
+                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                FirstName.Text = foundEmployee.FirstName;
+                LastName.Text = foundEmployee.LastName;
+                Username.Text = foundEmployee.EmailAddress;
+                PhoneNumber.Text = foundEmployee.CellNumber;
+                Address.Text = foundEmployee.Address;
 
-            Employee foundEmployee = new Employee();
-            Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
-            FirstName.Text = foundEmployee.FirstName;
-            LastName.Text = foundEmployee.LastName;
-            Username.Text = foundEmployee.EmailAddress;
-            PhoneNumber.Text = foundEmployee.CellNumber;
-            Address.Text = foundEmployee.Address;
+
+            }
 
         }
     }
