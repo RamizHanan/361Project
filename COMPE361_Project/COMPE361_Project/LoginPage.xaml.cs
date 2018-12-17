@@ -32,11 +32,18 @@ namespace COMPE361_Project
     public sealed partial class LoginPage : Page
     {
         string employeeEmail;
+        Employee currentEmployee;
 
         public LoginPage()
         {
             InitializeComponent();
         }
+
+        public Employee Parameter()
+        {
+            return currentEmployee;
+        }
+
         const string clientID = "581786658708-r4jimt0msgjtp77b15lonfom92ko6aeg.apps.googleusercontent.com";
         const string redirectURI = "pw.oauth2:/oauth2redirect";
         const string authorizationEndpoint = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -60,7 +67,6 @@ namespace COMPE361_Project
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["state"] = state;
             localSettings.Values["code_verifier"] = code_verifier;
-
             // Creates the OAuth 2.0 authorization request.
             string authorizationRequest = string.Format("{0}?response_type=code&scope=openid%20email&redirect_uri={1}&client_id={2}&state={3}&code_challenge={4}&code_challenge_method={5}",
                 authorizationEndpoint,
@@ -69,9 +75,7 @@ namespace COMPE361_Project
                 state,
                 code_challenge,
                 code_challenge_method);
-
-         //   output("Opening authorization request URI: " + authorizationRequest);
-
+            
             // Opens the Authorization URI in the browser.
             var success = Windows.System.Launcher.LaunchUriAsync(new Uri(authorizationRequest));
         }
@@ -87,7 +91,6 @@ namespace COMPE361_Project
                 // Gets URI from navigation parameters.
                 Uri authorizationResponse = (Uri)e.Parameter;
                 string queryString = authorizationResponse.Query;
-             //   output("MainPage received authorizationResponse: " + authorizationResponse);
 
                 // Parses URI params into a dictionary
                 // ref: http://stackoverflow.com/a/11957114/72176
@@ -181,7 +184,37 @@ namespace COMPE361_Project
             JObject employeeInfo = JObject.Parse(userinfoResponseContent);
             employeeEmail = (string)employeeInfo["email"];
 
-            CheckIfEmployeeExists();
+            //CheckIfEmployeeExists();
+
+            //ReadFile();
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string employeeListTemp = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+
+            //Check for empty file
+            if (employeeListTemp == "")
+            {
+                Employee sendEmployee = new Employee();
+                sendEmployee.IsAdmin = true;
+                sendEmployee.EmailAddress = employeeEmail;
+                var employeeParameter = new ProgramParams();
+                employeeParameter.FoundEmployee = sendEmployee;
+                this.Frame.Navigate(typeof(FirstTimeSetup), employeeParameter);
+                employeeExists = false;
+            }
+            else
+            {
+
+                //Check if employee already exists
+                JObject employeeChecker = JObject.Parse(employeeListTemp);
+
+                //If employee does not exist
+                try
+                {
+                    if (employeeChecker[employeeEmail] == null) employeeExists = false;
+                    else employeeExists = true;
+                }
+                catch { employeeExists = false; }
+            }
             if (employeeExists)
             {
                 string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
@@ -269,49 +302,6 @@ namespace COMPE361_Project
         Windows.Storage.StorageFile employeeFile;
         public bool employeeExists = true;
 
-        /*
-        public async void AddEmployee(string username, string password, Employee newEmployee)
-        {
-            //Check if employee already exists
-            CheckIfEmployeeExists(username, password);
-
-            //If employee doesn't exist
-            if (!employeeExists)
-            {
-                //Make JSON string from dictionary
-                string newEmployeeJSON = CreateEmployeeJSON(username, password, newEmployee);
-
-                //Write to employee JSON
-                WriteToJSON(newEmployeeJSON);
-
-                //**Write Employee Successfully Added**
-                TestStatus.Text = "SUCCESS - EMPLOYEE ADDED";
-
-            }
-            //If employee already exists
-            else
-                TestStatus.Text = "ERROR - EMPLOYEE ALREADY EXISTS";
-        }
-        */
-
-        /*
-        public async void WriteToJSON(string newJSON)
-        {
-            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
-            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-            if (newFile == "")
-                newFile = newJSON;
-            else
-            {
-                newFile = newFile.Remove(newFile.Length - 1, 1);
-                newJSON = newJSON.Remove(0, 1);
-                newJSON = newJSON.Remove(newJSON.Length - 1, 1);
-                newFile = newFile + ',' + newJSON + '}';
-            }
-            await Windows.Storage.FileIO.WriteTextAsync(employeeFile, newFile);
-        }
-        */
-        
         public async void CheckIfEmployeeExists()
         {
             ReadFile();
@@ -339,82 +329,5 @@ namespace COMPE361_Project
         {
             employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
         }
-        
-
-        /*
-        public string CreateEmployeeJSON(string username, string password, Employee newEmployee)
-        {
-            //Create employee dictionary
-            Dictionary<string, Employee> tempEmployee = new Dictionary<string, Employee>
-                {
-                    { password, newEmployee }
-                };
-            Dictionary<string, Dictionary<string, Employee>> newEmployeeDictionary = new Dictionary<string, Dictionary<string, Employee>>
-                {
-                    { username, tempEmployee }
-                };
-
-            //Make JSON string from dictionary
-            return JsonConvert.SerializeObject(newEmployeeDictionary, Formatting.Indented);
-        }
-        */
-
-        /*
-        public Employee CreateEmployee()
-        {
-            Employee employee = new Employee();
-            employee.FirstName = FirstName.Text;
-            employee.LastName = LastName.Text;
-            employee.CellNumber = PhoneNumber.Text;
-            employee.EmailAddress = EmailAddress.Text;
-            return employee;
-        }
-        */
-
-        //Create new employee
-        /*
-        private async void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-            Employee employee = CreateEmployee();
-            AddEmployee(Username.Text, Password.Text, employee);
-        }
-        */
-
-        //Loads employee data
-        /*
-        private async void LoadButton_Click(object sender, RoutedEventArgs e)
-        {
-            ReadFile();
-            CheckIfEmployeeExists(Username.Text, Password.Text);
-            if (!employeeExists) TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST";
-            else
-            {
-                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-                JObject employeeList = JObject.Parse(employeeListString);
-
-                //NEW
-                JObject employeeTarget = (JObject)employeeList[Username.Text][Password.Text];
-                string EmployeeJSON = employeeTarget.ToString();
-
-                //Taken out temporarily
-                //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
-
-                Employee foundEmployee = new Employee();
-                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
-                FirstName.Text = foundEmployee.FirstName;
-                LastName.Text = foundEmployee.LastName;
-                EmailAddress.Text = foundEmployee.EmailAddress;
-                PhoneNumber.Text = foundEmployee.CellNumber;
-                TestStatus.Text = "SUCCESS - EMPLOYEE FOUND";
-            }
-        }
-        */
-
-
-
-
-
-
-
     }
 }

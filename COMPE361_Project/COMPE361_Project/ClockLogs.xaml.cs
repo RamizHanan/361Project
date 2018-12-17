@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,8 +27,16 @@ namespace COMPE361_Project
         public ClockLogs()
         {
             this.InitializeComponent();
-            //Populate Employees ListView
         }
+        //protected override async void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    List<string> names = null;
+        //    foreach (var Employee in employeeList)
+        //    {
+        //        names.Add(Employee.LastName.ToString() + " " + Employee.FirstName.ToString());
+        //    }
+        //    Employees = names;
+        //}
         private void Employee_Select(object sender, SelectionChangedEventArgs e)
         {
 

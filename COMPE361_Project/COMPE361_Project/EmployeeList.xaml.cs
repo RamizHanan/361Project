@@ -20,14 +20,14 @@ using System.Diagnostics;
 using System.Threading;
 
 namespace COMPE361_Project
-{    
+{
     public sealed partial class EmployeeList : Page
     {
         public EmployeeList()
         {
             this.InitializeComponent();
+            newFunction();
         }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -36,36 +36,65 @@ namespace COMPE361_Project
 
             activeEmployee = currentEmployee.FoundEmployee;
 
-            FirstName.Text = activeEmployee.FirstName;
-            LastName.Text = activeEmployee.LastName;
-            EmailAddress.Text = activeEmployee.EmailAddress;
-            PhoneNumber.Text = activeEmployee.CellNumber;
-            Address.Text = activeEmployee.Address;
-            if (activeEmployee.IsAdmin) EmployeeType.Text = "Admin";
-            else if (activeEmployee.IsManager) EmployeeType.Text = "Manager";
-            else EmployeeType.Text = "General Employee";
+
+
+            //Schedule.Items.Add(new ListViewItem { Content =  });
+        }
+
+        public async void newFunction()
+        {
+            //get json into string
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            JObject json = JObject.Parse(newFile);
+
+            //access employees
+            JArray employeeList = (JArray)json["employees"];
+
+            List<string> employees = JsonConvert.DeserializeObject<List<string>>(employeeList.ToString());
+
+            for (int i = 0; i < employees.Count; i++)
+            {
+                //Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"] });
+                Employees.Items.Add(new ListViewItem { Content = employees[i] });
+            }
+
         }
 
         Employee activeEmployee = new Employee();
 
-        
+
 
         //Create temporary files
         Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
         Windows.Storage.StorageFile employeeFile;
         public bool employeeExists = true;
 
-        public async void AddEmployee(string username, string password, Employee newEmployee)
+        public async void AddEmployee(string username, Employee newEmployee)
         {
             //Check if employee already exists
-            CheckIfEmployeeExists(username, password);
-
+            CheckIfEmployeeExists(username);
             //If employee doesn't exist
             if (!employeeExists)
             {
+                //get json into string
+                employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+                string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject json = JObject.Parse(newFile);
+
+                //access employees
+                JArray employeeList = (JArray)json["employees"];
+
+                //add employee email to list
+                employeeList.Add(username);
+
+                //update json
+                await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());
+
                 //Make JSON string from dictionary
                 string newEmployeeJSON = CreateEmployeeJSON(username, newEmployee);
-
+                
                 //Write to employee JSON
                 WriteToJSON(newEmployeeJSON);
 
@@ -94,12 +123,10 @@ namespace COMPE361_Project
             await Windows.Storage.FileIO.WriteTextAsync(employeeFile, newFile);
         }
 
-        public async void CheckIfEmployeeExists(string username, string password)
+        public async void CheckIfEmployeeExists(string username)
         {
             ReadFile();
             string employeeList = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-
-            
 
             //Check for empty file
             if (employeeList == "") employeeExists = false;
@@ -109,12 +136,12 @@ namespace COMPE361_Project
                 //Check if employee already exists
                 JObject employeeChecker = JObject.Parse(employeeList);
 
-                
+
 
                 //If employee does not exist
                 try
                 {
-                    if (employeeChecker[username][password] == null) employeeExists = false;
+                    if (employeeChecker[username] == null) employeeExists = false;
                     else employeeExists = true;
                 }
                 catch { employeeExists = false; }
@@ -135,17 +162,34 @@ namespace COMPE361_Project
                     { username, newEmployee }
                 };
 
+
             //Make JSON string from dictionary
             return JsonConvert.SerializeObject(tempEmployee, Formatting.Indented);
         }
+        public async void UpdateEmployee(string email)
+        {
 
+            //get json into string
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            JObject json = JObject.Parse(newFile);
+
+            //access employees
+            json[email]["FirstName"] = FirstName.Text;
+
+            //update json
+            await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());
+        }
         public Employee CreateEmployee()
         {
+            //userName is email address since that is how we login
             Employee employee = new Employee();
             employee.FirstName = FirstName.Text;
             employee.LastName = LastName.Text;
             employee.CellNumber = PhoneNumber.Text;
-            employee.EmailAddress = EmailAddress.Text;
+            employee.EmailAddress = Username.Text.ToLower(); //keep it lowercase cuz email
+            employee.Address = Address.Text;
+            // employee.employeeType = EmployeeType.Text;
             return employee;
         }
 
@@ -153,56 +197,76 @@ namespace COMPE361_Project
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             Employee employee = CreateEmployee();
-            AddEmployee(Username.Text, Password.Text, employee);
+            AddEmployee(Username.Text, employee);
+        }
+
+        private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateEmployee(Username.Text);
         }
 
         //Loads employee data
         private async void LoadButton_Click(object sender, RoutedEventArgs e)
         {
             ReadFile();
-            CheckIfEmployeeExists(Username.Text, Password.Text);
+            CheckIfEmployeeExists(Username.Text);
             if (!employeeExists) TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST";
             else
             {
-                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-                JObject employeeList = JObject.Parse(employeeListString);
+                try
+                {
+                    string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                    JObject employeeList = JObject.Parse(employeeListString);
 
-                //NEW
-                JObject employeeTarget = (JObject)employeeList[Username.Text];
-                string EmployeeJSON = employeeTarget.ToString();
+                    //NEW
+                    JObject employeeTarget = (JObject)employeeList[Username.Text];
 
-                //Taken out temporarily
-                //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
+                    string EmployeeJSON = employeeTarget.ToString();
 
-                Employee foundEmployee = new Employee();
-                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
-                FirstName.Text = foundEmployee.FirstName;
-                LastName.Text = foundEmployee.LastName;
-                EmailAddress.Text = foundEmployee.EmailAddress;
-                PhoneNumber.Text = foundEmployee.CellNumber;
-                TestStatus.Text = "SUCCESS - EMPLOYEE FOUND";
+                    //Taken out temporarily
+                    //string EmployeeJSON = employeeList[Username.Text][Password.Text].ToString();
+
+                    Employee foundEmployee = new Employee();
+                    Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                    FirstName.Text = foundEmployee.FirstName;
+                    LastName.Text = foundEmployee.LastName;
+                    Username.Text = foundEmployee.EmailAddress;
+                    PhoneNumber.Text = foundEmployee.CellNumber;
+                    Address.Text = foundEmployee.Address;
+                    //    EmployeeType.Text = foundEmployee.employeeType;
+                    TestStatus.Text = "SUCCESS - EMPLOYEE FOUND";
+                }
+                catch { TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST"; }
             }
         }
-
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-            {
+        {
 
-            }
-
-            private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-            {
-
-            }
-
-            private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
-            {
-
-            }
-
-            private void First_Copy1_SelectionChanged(object sender, RoutedEventArgs e)
-            {
-
-            }
         }
-    
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void First_Copy1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Employees_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
 }

@@ -110,8 +110,8 @@
     <Compile Include="EmployeeList.xaml.cs">
       <DependentUpon>EmployeeList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageEmployees.xaml.cs">
-      <DependentUpon>ManageEmployees.xaml</DependentUpon>
+    <Compile Include="FirstTimeSetup.xaml.cs">
+      <DependentUpon>FirstTimeSetup.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagePTO.xaml.cs">
       <DependentUpon>ManagePTO.xaml</DependentUpon>
@@ -174,7 +174,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ManageEmployees.xaml">
+    <Page Include="FirstTimeSetup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,9 +206,6 @@
   <ItemGroup>
     <PackageReference Include="Google.Apis">
       <Version>1.36.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Azure.Mobile.Client">
-      <Version>4.0.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.2</Version>

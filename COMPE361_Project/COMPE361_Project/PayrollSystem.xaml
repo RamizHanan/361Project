@@ -8,9 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid>
-            <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
             <SplitView Name="Display" IsPaneOpen="False" DisplayMode="CompactOverlay">
                 <SplitView.Pane>
                     <StackPanel Background="LightGray">
