@@ -51,9 +51,13 @@ namespace COMPE361_Project
         {
             try
             {
-                List<string> listOfDates = DatesRequestedBox.Items.Cast<ListViewItem>().Select(x => x.ToString()).ToList();
-                //currentEmployee. newRequest = new PTORequestForm(currentEmployee.FirstName + currentEmployee.LastName, listOfDates, ReasonBox.Text);
-                string saveJSON = JsonConvert.SerializeObject(listOfDates);
+                string selected = "";
+                foreach(string x in DatesRequestedBox.Items)
+                {
+                    selected += $" {x}";
+                }
+                
+                Requests.Items.Add($"Selected Dates: {selected} \n Reason: {ReasonBox.Text} \n Status: Pending");
             }
             catch(Exception ex)
             {
