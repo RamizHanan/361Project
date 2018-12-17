@@ -103,11 +103,12 @@
     <Compile Include="EditSchedule.xaml.cs">
       <DependentUpon>EditSchedule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeClock.xaml.cs">
       <DependentUpon>EmployeeClock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManageEmployees.xaml.cs">
-      <DependentUpon>ManageEmployees.xaml</DependentUpon>
+    <Compile Include="EmployeeList.xaml.cs">
+      <DependentUpon>EmployeeList.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagePTO.xaml.cs">
       <DependentUpon>ManagePTO.xaml</DependentUpon>
@@ -138,6 +139,7 @@
   <ItemGroup>
     <Content Include="Assets\background.jpg" />
     <Content Include="Assets\background2.jpg" />
+    <Content Include="Assets\btn_google_sign-in.png" />
     <Content Include="Assets\profilepic.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -165,9 +167,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ManageEmployees.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="EmployeeList.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ManagePTO.xaml">
       <SubType>Designer</SubType>
@@ -197,9 +199,6 @@
   <ItemGroup>
     <PackageReference Include="Google.Apis">
       <Version>1.36.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Azure.Mobile.Client">
-      <Version>4.0.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.2</Version>

@@ -22,7 +22,7 @@
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="compe361project">
+          <uap:Protocol Name="pw.oauth2">
             <uap:DisplayName>Test</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>

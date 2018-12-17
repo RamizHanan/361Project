@@ -10,7 +10,7 @@
     <Grid>
         <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
         <RelativePanel Background="White" Margin="275,200,275,200">
-            <TextBlock Name="Welcome" FontSize="72" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            <TextBlock Name="Welcome" FontSize="52" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
             <TextBlock Name="Position" FontSize="36" RelativePanel.Below="Welcome" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         </RelativePanel>
     </Grid>
