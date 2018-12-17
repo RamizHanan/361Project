@@ -110,6 +110,9 @@
     <Compile Include="EmployeeList.xaml.cs">
       <DependentUpon>EmployeeList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FirstTimeSetup.xaml.cs">
+      <DependentUpon>FirstTimeSetup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ManagePTO.xaml.cs">
       <DependentUpon>ManagePTO.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
     <Page Include="EmployeeList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FirstTimeSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ManagePTO.xaml">
       <SubType>Designer</SubType>
