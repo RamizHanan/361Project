@@ -37,6 +37,9 @@ namespace COMPE361_Project
         public string[] ClockOut { get; set; }
         public string[] LunchIn { get; set; }
         public string[] LunchOut { get; set; }
+        public string[] ScheduleStart { get; set; }
+        public string[] ScheduleEnd { get; set; }
+        public string[] ScheduleDate { get; set; }
 
         public override string ToString()
         {

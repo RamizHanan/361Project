@@ -50,7 +50,7 @@ namespace COMPE361_Project
         {
             var sendEmployee = new ProgramParams();
             sendEmployee.FoundEmployee = employee.FoundEmployee;
-            if (employee.FoundEmployee.IsManager || employee.FoundEmployee.IsAdmin) Content.Navigate(typeof(ClockLogs), sendEmployee);
+            if (employee.FoundEmployee.IsAdmin) Content.Navigate(typeof(ClockLogs), sendEmployee);
             else Content.Navigate(typeof(EmployeeClock), sendEmployee);
         }
         private void Schedule_Click(object sender, RoutedEventArgs e)
@@ -87,15 +87,15 @@ namespace COMPE361_Project
             //Update menu for employee
             if (currentEmployee.FoundEmployee.IsAdmin) Manage_Employees.Visibility = Visibility.Visible;
             else Manage_Employees.Visibility = Visibility.Collapsed;
+            if (currentEmployee.FoundEmployee.IsAdmin)  Clock_Title.Content = Clock_Title.Content = "Clock Logs";
+            else   Clock_Title.Content = "Clock In/Out";
             if (currentEmployee.FoundEmployee.IsAdmin|| currentEmployee.FoundEmployee.IsManager)
             {
-                Clock_Title.Content = Clock_Title.Content = "Clock Logs";
                 Calendar_Title.Content = "Edit Schedule";
                 PTO_Title.Content = "Manage PTO";
             }
             else
             {
-                Clock_Title.Content = "Clock In/Out";
                 Calendar_Title.Content = "View Schedule";
                 PTO_Title.Content = "PTO Request";
             }

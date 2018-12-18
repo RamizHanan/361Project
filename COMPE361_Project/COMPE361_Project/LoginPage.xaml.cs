@@ -184,7 +184,37 @@ namespace COMPE361_Project
             JObject employeeInfo = JObject.Parse(userinfoResponseContent);
             employeeEmail = (string)employeeInfo["email"];
 
-            CheckIfEmployeeExists();
+            //CheckIfEmployeeExists();
+
+            //ReadFile();
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string employeeListTemp = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+
+            //Check for empty file
+            if (employeeListTemp == "")
+            {
+                Employee sendEmployee = new Employee();
+                sendEmployee.IsAdmin = true;
+                sendEmployee.EmailAddress = employeeEmail;
+                var employeeParameter = new ProgramParams();
+                employeeParameter.FoundEmployee = sendEmployee;
+                this.Frame.Navigate(typeof(FirstTimeSetup), employeeParameter);
+                employeeExists = false;
+            }
+            else
+            {
+
+                //Check if employee already exists
+                JObject employeeChecker = JObject.Parse(employeeListTemp);
+
+                //If employee does not exist
+                try
+                {
+                    if (employeeChecker[employeeEmail] == null) employeeExists = false;
+                    else employeeExists = true;
+                }
+                catch { employeeExists = false; }
+            }
             if (employeeExists)
             {
                 string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);

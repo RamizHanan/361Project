@@ -95,7 +95,7 @@ namespace COMPE361_Project
             employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
             string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
             JObject json = JObject.Parse(newFile);
-            JArray employee = (JArray)json[receivedEmployee.EmailAddress][clockType];
+            JArray employee = new JArray(json[receivedEmployee.EmailAddress][clockType]);
             employee.Add(newDateAndTime);
             json[receivedEmployee.EmailAddress][lunchOrClock] = inOrOut;
             await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());

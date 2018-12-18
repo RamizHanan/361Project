@@ -6,30 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
 
-    <Grid>
+    <ScrollViewer>
+        <Grid>
         <Image Stretch="UniformToFill" Source="Assets/background2.jpg"/>
-        <Grid Background="White" Margin="152,121,151,120">
+        <Grid Background="White" Margin="152,121,151,120" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TextBlock Text="Welcome New Admin!" FontSize="52" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
-            <Grid Margin="114,158,114,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" MinWidth="244" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button x:Name="Finish" Content="Finish" FontSize="36" VerticalAlignment="Top" Margin="173,425,0,0" HorizontalAlignment="Left" Height="91" Width="161" Grid.Column="1"/>
-                <TextBox x:Name="Username" HorizontalAlignment="Left" Text="" VerticalAlignment="Top" Margin="174,347,0,0" Grid.Column="1" Height="32" Width="274"/>
-                <TextBlock x:Name="First" Grid.Column="1" HorizontalAlignment="Left" Margin="45,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
-                <TextBlock x:Name="Email" Grid.Column="1" HorizontalAlignment="Left" Margin="45,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="107"><Run Text="Email Address:"/><LineBreak/><Run/></TextBlock>
-                <TextBlock x:Name="Type" Grid.Column="1" HorizontalAlignment="Left" Margin="45,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="103"><Run Text="Employee Type:"/><LineBreak/><Run/></TextBlock>
-                <TextBlock x:Name="Last" Grid.Column="1" HorizontalAlignment="Left" Margin="44,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="106"><Run Text="Last Name:"/><LineBreak/><Run/></TextBlock>
-                <TextBlock x:Name="Number" Grid.Column="1" HorizontalAlignment="Left" Margin="37,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="104"><Run Text="Phone Number:"/><LineBreak/><Run/></TextBlock>
-                <TextBlock x:Name="Address1" Grid.Column="1" HorizontalAlignment="Left" Margin="44,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Height="40"><Run Text="Address:"/><LineBreak/><Run/></TextBlock>
-                <TextBox x:Name="FirstName" Grid.Column="1" HorizontalAlignment="Left" Margin="173,13,0,0" VerticalAlignment="Top" Width="137" Height="32" />
-                <TextBox x:Name="LastName" Grid.Column="1" HorizontalAlignment="Left" Margin="173,79,0,0" VerticalAlignment="Top" Width="137" Height="32"/>
-                <TextBox x:Name="PhoneNumber" Grid.Column="1" HorizontalAlignment="Left" Margin="173,137,0,0" VerticalAlignment="Top" Width="137" Height="32"/>
-                <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Left" Margin="173,185,0,0" VerticalAlignment="Top" Width="256" Height="49"/>
+            <Grid Margin="0,158,0,10" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+
+                <Button x:Name="Finish" Content="Finish" FontSize="36" VerticalAlignment="Stretch" Margin="0,362,0,138" HorizontalAlignment="Center" Width="161" Click="Finish_Click"/>
+                <TextBlock x:Name="First" HorizontalAlignment="Left" Margin="45,17,0,534" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
+                <TextBlock x:Name="Last" HorizontalAlignment="Left" Margin="44,82,0,469" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="106"><Run Text="Last Name:"/><LineBreak/><Run/></TextBlock>
+                <TextBlock x:Name="Number" HorizontalAlignment="Left" Margin="37,137,0,414" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="104"><Run Text="Phone Number:"/><LineBreak/><Run/></TextBlock>
+                <TextBlock x:Name="Address1" HorizontalAlignment="Left" Margin="44,194,0,357" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="73"><Run Text="Address:"/><LineBreak/><Run/></TextBlock>
+                <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="173,13,0,546" VerticalAlignment="Stretch" Width="137" />
+                <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="173,79,0,480" VerticalAlignment="Stretch" Width="137"/>
+                <TextBox x:Name="PhoneNumber" HorizontalAlignment="Left" Margin="173,137,0,422" VerticalAlignment="Stretch" Width="137"/>
+                <TextBox x:Name="Address" HorizontalAlignment="Left" Margin="173,185,0,357" VerticalAlignment="Stretch" Width="256"/>
+                <TextBlock Name="ErrorMessage" Text="" FontSize="52" HorizontalAlignment="Center" Margin="0,504,0,18" VerticalAlignment="Stretch"/>
             </Grid>
         </Grid>
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

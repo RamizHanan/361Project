@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,14 +24,31 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class ViewSchedule : Page
     {
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        public Employee receivedEmployee;
         public ViewSchedule()
         {
             this.InitializeComponent();
         }
-        private void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
 
-       //     Schedule.Items.Add(new ListViewItem { Content =  });
+            var currentEmployee = (ProgramParams)e.Parameter;
+
+            receivedEmployee = currentEmployee.FoundEmployee;
+            try
+            {
+                for (int i = 0; i < receivedEmployee.ScheduleStart.Length; i++)
+                {
+                    EmployeeSchedule.Items.Add(new ListViewItem { Content = receivedEmployee.ScheduleDate[i] + " " + receivedEmployee.ScheduleStart[i] + " " + receivedEmployee.ScheduleEnd[i] + '\n' });
+                }
+            }
+            catch (NullReferenceException)
+            {
+                EmployeeSchedule.Items.Add(new ListViewItem { Content = "No Schedule Entered" });
+            }
         }
     }
 }

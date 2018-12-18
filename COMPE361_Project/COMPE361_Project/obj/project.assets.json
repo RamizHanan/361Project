@@ -20429,7 +20429,6 @@
       "sha512": "ed0kCs6Gxfw2ZGf34eqO8cwaD16Ll1FKw+jBfGevdiHqc2kTwux9yqkHwhe9WP8jzSbuZX3o4y3wMUUkz5gSeg==",
       "type": "package",
       "path": "microsoft.net.native.compiler/1.7.3",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "build/Microsoft.Net.Native.Compiler.props",
@@ -21329,7 +21328,6 @@
       "sha512": "eI4KNNMOpgpBkdXHFgmXD2l5gNdJJOV+ntN1Fwwnm93Rr7pmD8MGssJpI7wo7+uieaFIfAZ2waZjEnRR4Uu90A==",
       "type": "package",
       "path": "microsoft.net.native.sharedlibrary-arm/1.7.0",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "build/Microsoft.Net.Native.SharedLibrary-arm.props",
@@ -21729,7 +21727,6 @@
       "sha512": "3nrUuvayvlOdmx7yzUBu2PzKeQmZ0mwqhMfarOzt6X1tKjIrOONCFqH148rP7TgQDJBfKVSShB1f+BedF69emw==",
       "type": "package",
       "path": "microsoft.net.native.sharedlibrary-x64/1.7.0",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "build/Microsoft.Net.Native.SharedLibrary-x64.props",
@@ -22129,7 +22126,6 @@
       "sha512": "nC682cBwXA/ITw1BKnPxMBp93uHHFPmG/X9P+mQt1yCJBXnEcNi7XzzOROmqMuNwwtk5ci/cQE4HQDytn3O39g==",
       "type": "package",
       "path": "microsoft.net.native.sharedlibrary-x86/1.7.0",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "build/Microsoft.Net.Native.SharedLibrary-x86.props",
@@ -23070,7 +23066,6 @@
       "sha512": "vcX8ci+srBr5scnSKCUNNoFo5BQ6KjdfeJ5LCJQhvxncNkTy7w3pAWsnRJrsF9WBBdMiaQp0aOa3YRh1CDCc7A==",
       "type": "package",
       "path": "newtonsoft.json/10.0.2",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -25440,7 +25435,6 @@
       "sha512": "YaXA5RVLCYIcV1N31A7MJhWJnNkNfGnyRBNH1yYilUrBDvzMxNsbXX2pD7owWsC/go/4LRwbHbdWWXwHowKNvw==",
       "type": "package",
       "path": "runtime.win7-x64.microsoft.netcore.runtime.coreclr/1.0.2",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "ThirdPartyNotices.txt",
@@ -25497,7 +25491,6 @@
       "sha512": "80Jj8QlMLAnTq+BDhoHBnSNXRKqVjjZM9VjHcpw9/F98cBmh80rBdbnM0AAr54htjhzupYvwLqwuKnlzxec04A==",
       "type": "package",
       "path": "runtime.win7-x86.microsoft.netcore.runtime.coreclr/1.0.2",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "ThirdPartyNotices.txt",
@@ -25557,7 +25550,6 @@
       "sha512": "0V6sq7Dg0bQPrJtm/Qw5Zu0e7gidnRPLaqUhKIkLYzVn64jkat+JnR6LcezryD3c0Wuva/MdJWYSAaOPq5V/Zw==",
       "type": "package",
       "path": "runtime.win8-arm.microsoft.netcore.runtime.coreclr/1.0.2",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "ThirdPartyNotices.txt",
@@ -30807,11 +30799,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Drowz\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectUniqueName": "C:\\Users\\Drowz\\Downloads\\361Project-Dylan\\361Project-Dylan\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "projectName": "COMPE361_Project",
-      "projectPath": "C:\\Users\\Drowz\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
+      "projectPath": "C:\\Users\\Drowz\\Downloads\\361Project-Dylan\\361Project-Dylan\\COMPE361_Project\\COMPE361_Project\\COMPE361_Project.csproj",
       "packagesPath": "C:\\Users\\Drowz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Drowz\\Documents\\GitHub\\361Project\\COMPE361_Project\\COMPE361_Project\\obj\\",
+      "outputPath": "C:\\Users\\Drowz\\Downloads\\361Project-Dylan\\361Project-Dylan\\COMPE361_Project\\COMPE361_Project\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

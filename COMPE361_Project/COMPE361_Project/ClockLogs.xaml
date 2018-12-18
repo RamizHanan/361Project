@@ -12,12 +12,31 @@
         <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
         <SplitView DisplayMode="Inline" IsPaneOpen="True">
             <SplitView.Pane>
-                <ListView Name="Employees" SelectionChanged="Employee_Select">
+                <ListView Name="EmployeeEmailList" HorizontalAlignment="Stretch" Margin="2,0,-2,0" VerticalAlignment="Stretch" IsItemClickEnabled="True" ItemClick="EmployeeEmailList_ItemClick">
                     <ListViewHeaderItem Content="Employees"/>
                 </ListView>
             </SplitView.Pane>
             <SplitView.Content>
-                <ListView Name="Log"/>
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView Name="ClockInList" SelectionMode="None" IsItemClickEnabled="False">
+                        <ListViewHeaderItem Content="ClockInList"/>
+                    </ListView>
+                    <ListView Name="ClockOutList" Grid.Column="1" SelectionMode="None" IsItemClickEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListViewHeaderItem Content="ClockOutList"/>
+                    </ListView>
+                    <ListView Name="LunchInList" Grid.Column="2" SelectionMode="None" IsItemClickEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <ListViewHeaderItem Content="LunchInList"/>
+                    </ListView>
+                    <ListView Name="LunchOutList" Grid.Column="3" SelectionMode="None" IsItemClickEnabled="False">
+                        <ListViewHeaderItem Content="LunchOutList"/>
+                    </ListView>
+                </Grid>
             </SplitView.Content>
         </SplitView>
     </Grid>

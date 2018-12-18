@@ -8,34 +8,34 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Viewbox Stretch="UniformToFill">
-        <Grid>
-            <Image Source="Assets/background2.jpg" Stretch="UniformToFill"/>
+        <Grid Height="891" Width="1337" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+            <Image Source="Assets/background2.jpg" Stretch="UniformToFill" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
             <CalendarDatePicker Name="DateSelector" DateChanged="DateSelect" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
             <Grid HorizontalAlignment="Stretch" Margin="0,37,0,0" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <ListView Background="White" Margin="65,70,65,70">
+                <ListView Name="EmployeeScheduleList" Background="White" Margin="65,70,65,70" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsItemClickEnabled="True" ItemClick="EmployeeScheduleList_ItemClick">
                     <ListViewHeaderItem Content="Employees" FontSize="36"/>
                 </ListView>
                 <Grid Background="White" Grid.Column="1" Margin="65,70,65,70" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="Date Selected :" FontSize="32" HorizontalAlignment="Stretch" Margin="10,18,400,762"/>
-                    <TextBlock Name="dateSelected" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" Margin="135,125,0,0"/>
-                    <Button Content="Start Time" FontSize="32" HorizontalAlignment="Stretch" Margin="50,259,400,509" VerticalAlignment="Stretch">
+                    <TextBlock Text="Date Selected :" FontSize="32" Margin="10,18,276,637" HorizontalAlignment="Stretch"/>
+                    <TextBlock Name="dateSelected" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" Margin="50,90,0,0" Width="0"/>
+                    <Button Content="Start Time" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,225,0,0">
                         <Button.Flyout>
                             <MenuFlyout x:Name="StartTimeOptions"/>
                         </Button.Flyout>
                     </Button>
-                    <Button Content="End Time" FontSize="32" HorizontalAlignment="Stretch" Margin="400,259,50,509" VerticalAlignment="Stretch">
+                    <Button Content="End Time" FontSize="32" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,225,35,0">
                         <Button.Flyout>
                             <MenuFlyout x:Name="EndTimeOptions"/>
                         </Button.Flyout>
                     </Button>
-                    <TextBlock x:Name="Start" FontSize="32" Margin="50,369,0,411" TextWrapping="Wrap" HorizontalAlignment="Left" Width="177" VerticalAlignment="Stretch"/>
-                    <TextBlock x:Name="End" FontSize="32" Margin="0,377,84,403" TextWrapping="Wrap" HorizontalAlignment="Right" Width="137"/>
-                    <Button Click="Schedule" Content="Schedule" FontSize="32" HorizontalAlignment="Center" Margin="0,513,0,255" VerticalAlignment="Stretch"/>
-                    <TextBlock Name="Output" FontSize="32" Margin="10,600,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <TextBlock x:Name="Start" FontSize="32" Margin="115,325,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="End" FontSize="32" Margin="428,325,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Click="Schedule" Content="Schedule" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,455,0,0"/>
+                    <TextBlock Name="Output" TextWrapping="Wrap" FontSize="32" Margin="10,528,10,10"/>
                 </Grid>
             </Grid>
         </Grid>

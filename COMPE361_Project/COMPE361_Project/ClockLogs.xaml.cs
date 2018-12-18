@@ -24,22 +24,79 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class ClockLogs : Page
     {
+
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        public Employee receivedEmployee;
+
         public ClockLogs()
         {
             this.InitializeComponent();
         }
-        //protected override async void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    List<string> names = null;
-        //    foreach (var Employee in employeeList)
-        //    {
-        //        names.Add(Employee.LastName.ToString() + " " + Employee.FirstName.ToString());
-        //    }
-        //    Employees = names;
-        //}
-        private void Employee_Select(object sender, SelectionChangedEventArgs e)
-        {
 
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+            JObject json = JObject.Parse(newFile);
+            JArray employee = (JArray)json["employees"];
+            try
+            {
+                List<string> names = JsonConvert.DeserializeObject<List<string>>(employee.ToString());
+                for (int i = 0; i < names.Count; i++)
+                {
+                    EmployeeEmailList.Items.Add(new ListViewItem { Content = names[i] });
+                }
+            }
+            catch(NullReferenceException)
+            {
+                    EmployeeEmailList.Items.Add(new ListViewItem { Content = "No Employees" });
+            }
+        }
+        private async void EmployeeEmailList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string email = "";
+
+            if (e.ClickedItem.ToString() != "Windows.UI.Xaml.Controls.ListViewHeaderItem")
+            {
+                try
+                {
+                    email = e.ClickedItem.ToString();
+                    string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                    JObject employeeList = JObject.Parse(employeeListString);
+
+                    JObject employeeTarget = (JObject)employeeList[email];
+                    string EmployeeJSON = employeeTarget.ToString();
+
+                    Employee foundEmployee = new Employee();
+                    Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                    ClockInList.Items.Clear();
+                    ClockInList.Header = "ClockInList";
+                    ClockOutList.Items.Clear();
+                    ClockOutList.Header = "ClockOutList";
+                    LunchInList.Items.Clear();
+                    LunchInList.Header = "LunchInList";
+                    LunchOutList.Items.Clear();
+                    LunchOutList.Header = "LunchOutList";
+                    for (int i = 0; i < foundEmployee.ClockIn.Length; i++)
+                    {
+                        ClockInList.Items.Add(new ListViewItem { Content = foundEmployee.ClockIn[i] });
+                    }
+                    for (int i = 0; i < foundEmployee.ClockOut.Length; i++)
+                    {
+                        ClockOutList.Items.Add(new ListViewItem { Content = foundEmployee.ClockOut[i] });
+                    }
+                    for (int i = 0; i < foundEmployee.LunchIn.Length; i++)
+                    {
+                        LunchInList.Items.Add(new ListViewItem { Content = foundEmployee.LunchIn[i] });
+                    }
+                    for (int i = 0; i < foundEmployee.LunchOut.Length; i++)
+                    {
+                        LunchOutList.Items.Add(new ListViewItem { Content = foundEmployee.LunchOut[i] });
+                    }
+                }
+                catch { }
+            }
         }
     }
 }
