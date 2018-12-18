@@ -7,3 +7,5 @@ Google sign in authentication
 ---------------------------------------------
 JSON file reader/writer able to save and retrieve employees
 ----------------------------------------------------------
+Able to ADD REMOVE UPDATE employees
+----------------------------------------------------------
