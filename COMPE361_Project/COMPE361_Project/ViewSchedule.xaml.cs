@@ -51,8 +51,6 @@ namespace COMPE361_Project
 
             ReadFile();
 
-            CalendarViewDayItem dayStatus = new CalendarViewDayItem();
-
             //Deserialize from json
             string employeeScheduleString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
             JObject scheduleChecker = JObject.Parse(employeeScheduleString);
