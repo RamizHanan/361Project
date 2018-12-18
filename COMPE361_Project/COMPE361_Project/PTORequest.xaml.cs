@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Newtonsoft.Json;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,16 +23,24 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class PTORequest : Page
     {
+        private Employee currentEmployee;
         public PTORequest()
         {
             this.InitializeComponent();
+            DateSelector.MinDate = DateTime.Today;
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            ProgramParams employee = (ProgramParams)e.Parameter;
+            currentEmployee = employee.FoundEmployee;
         }
         private void DateSelected(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
         {
-            DatesRequested.Items.Clear();
+            DatesRequestedBox.Items.Clear();
             foreach(DateTimeOffset date in DateSelector.SelectedDates)
             {
-                DatesRequested.Items.Add(date.ToString("MM/dd/yyyy"));
+                DatesRequestedBox.Items.Add(date.ToString("MM/dd/yyyy"));
             }
         }
         private void Clear(object sender, RoutedEventArgs e)
@@ -40,8 +49,17 @@ namespace COMPE361_Project
         }
         private void Send(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                List<string> listOfDates = DatesRequestedBox.Items.Cast<ListViewItem>().Select(x => x.ToString()).ToList();
+                //currentEmployee. newRequest = new PTORequestForm(currentEmployee.FirstName + currentEmployee.LastName, listOfDates, ReasonBox.Text);
+                string saveJSON = JsonConvert.SerializeObject(listOfDates);
+            }
+            catch(Exception ex)
+            {
+                Status.Text = ex.Message;
+            }
             Status.Text = "Request Successful";
-            //...
         }
     }
 }
