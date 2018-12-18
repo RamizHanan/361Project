@@ -22,13 +22,35 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class ProfilePage : Page
     {
-        string Username = "John Doe";
-        string position = "Manager";
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var currentEmployee = (ProgramParams)e.Parameter;
+
+            employee = (ProgramParams)currentEmployee;
+
+            employeeData = employee.FoundEmployee;
+
+            Welcome.Text = $"Welcome Back {currentEmployee.FoundEmployee.FirstName} {currentEmployee.FoundEmployee.LastName}";
+            if (currentEmployee.FoundEmployee.IsAdmin)
+                Position.Text = $"Admin";
+            else if (currentEmployee.FoundEmployee.IsManager)
+                Position.Text = $"Manager";
+            else
+                Position.Text = $"General Employee";
+            /*
+            var employeeSend = new ProgramParams();
+            employeeSend = employee;
+            this.Frame.Navigate(typeof(LoginPage), employeeSend);
+            */
+        }
+        ProgramParams employee = new ProgramParams();
+        Employee employeeData = new Employee();
         public ProfilePage()
         {
             this.InitializeComponent();
-            Welcome.Text = $"Welcome Back {Username}";
-            Position.Text = $"{position}";
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
     }
 }

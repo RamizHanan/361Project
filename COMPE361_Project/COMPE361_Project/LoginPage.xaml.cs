@@ -20,16 +20,30 @@ using System.Text;
 using Windows.Storage.Streams;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
+using System.Threading;
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace COMPE361_Project
 {
     public sealed partial class LoginPage : Page
     {
+        string employeeEmail;
+        Employee currentEmployee;
+
         public LoginPage()
         {
             InitializeComponent();
         }
+
+        public Employee Parameter()
+        {
+            return currentEmployee;
+        }
+
         const string clientID = "581786658708-r4jimt0msgjtp77b15lonfom92ko6aeg.apps.googleusercontent.com";
         const string redirectURI = "pw.oauth2:/oauth2redirect";
         const string authorizationEndpoint = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -53,7 +67,6 @@ namespace COMPE361_Project
             ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
             localSettings.Values["state"] = state;
             localSettings.Values["code_verifier"] = code_verifier;
-
             // Creates the OAuth 2.0 authorization request.
             string authorizationRequest = string.Format("{0}?response_type=code&scope=openid%20email&redirect_uri={1}&client_id={2}&state={3}&code_challenge={4}&code_challenge_method={5}",
                 authorizationEndpoint,
@@ -62,9 +75,7 @@ namespace COMPE361_Project
                 state,
                 code_challenge,
                 code_challenge_method);
-
-         //   output("Opening authorization request URI: " + authorizationRequest);
-
+            
             // Opens the Authorization URI in the browser.
             var success = Windows.System.Launcher.LaunchUriAsync(new Uri(authorizationRequest));
         }
@@ -80,7 +91,6 @@ namespace COMPE361_Project
                 // Gets URI from navigation parameters.
                 Uri authorizationResponse = (Uri)e.Parameter;
                 string queryString = authorizationResponse.Query;
-             //   output("MainPage received authorizationResponse: " + authorizationResponse);
 
                 // Parses URI params into a dictionary
                 // ref: http://stackoverflow.com/a/11957114/72176
@@ -169,9 +179,61 @@ namespace COMPE361_Project
             output("Making API Call to Userinfo...");
             HttpResponseMessage userinfoResponse = client.GetAsync(userInfoEndpoint).Result;
             string userinfoResponseContent = await userinfoResponse.Content.ReadAsStringAsync();
-           // output(userinfoResponseContent);
-            this.Frame.Navigate(typeof(PayrollSystem));
 
+            //Get email from JSON
+            JObject employeeInfo = JObject.Parse(userinfoResponseContent);
+            employeeEmail = (string)employeeInfo["email"];
+
+            //CheckIfEmployeeExists();
+
+            //ReadFile();
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            string employeeListTemp = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+
+            //Check for empty file
+            if (employeeListTemp == "")
+            {
+                Employee sendEmployee = new Employee();
+                sendEmployee.IsAdmin = true;
+                sendEmployee.EmailAddress = employeeEmail;
+                var employeeParameter = new ProgramParams();
+                employeeParameter.FoundEmployee = sendEmployee;
+                this.Frame.Navigate(typeof(FirstTimeSetup), employeeParameter);
+                employeeExists = false;
+            }
+            else
+            {
+
+                //Check if employee already exists
+                JObject employeeChecker = JObject.Parse(employeeListTemp);
+
+                //If employee does not exist
+                try
+                {
+                    if (employeeChecker[employeeEmail] == null) employeeExists = false;
+                    else employeeExists = true;
+                }
+                catch { employeeExists = false; }
+            }
+            if (employeeExists)
+            {
+                string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject employeeList = JObject.Parse(employeeListString);
+
+                JObject employeeTarget = (JObject)employeeList[employeeEmail];
+                string EmployeeJSON = employeeTarget.ToString();
+                
+                var employeeParameter = new ProgramParams();
+                Employee foundEmployee = new Employee();
+                Newtonsoft.Json.JsonConvert.PopulateObject(EmployeeJSON, foundEmployee);
+                employeeParameter.FoundEmployee = foundEmployee;
+
+                this.Frame.Navigate(typeof(PayrollSystem), employeeParameter);
+            }
+            else
+            {
+                Error.Text = "Employee does not exist";
+            }
         }
 
         /// <summary>
@@ -229,6 +291,43 @@ namespace COMPE361_Project
         private void EnterPress(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter) this.Login_Click(sender, e);
+        }
+
+
+        //Start of PASTED CODE
+
+
+        //Create temporary files
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        public bool employeeExists = true;
+
+        public async void CheckIfEmployeeExists()
+        {
+            ReadFile();
+            string employeeList = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+
+            //Check for empty file
+            if (employeeList == "") employeeExists = false;
+            else
+            {
+
+                //Check if employee already exists
+                JObject employeeChecker = JObject.Parse(employeeList);
+
+                //If employee does not exist
+                try
+                {
+                    if (employeeChecker[employeeEmail] == null) employeeExists = false;
+                    else employeeExists = true;
+                }
+                catch { employeeExists = false; }
+            }
+        }
+        
+        public async void ReadFile()
+        {
+            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
         }
     }
 }

@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <ScrollViewer HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto">
+
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid>
             <SplitView Name="Display" IsPaneOpen="False" DisplayMode="CompactOverlay">
                 <SplitView.Pane>

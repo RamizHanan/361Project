@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.WindowsAzure.MobileServices;
 using System.Net.Http;
 namespace COMPE361_Project
 {
@@ -27,7 +26,6 @@ namespace COMPE361_Project
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
-        public static MobileServiceClient MobileService = new MobileServiceClient("https://employeeportalcompe361.azurewebsites.net/");
         public App()
         {
             this.InitializeComponent();
