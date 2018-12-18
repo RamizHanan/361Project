@@ -44,12 +44,13 @@
                     <TextBox x:Name="EmpType" Grid.Column="1" HorizontalAlignment="Left" Margin="173,267,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
                     <Button x:Name="LoadButton" Content="&#xD;&#xA;Load Employee Info&#xD;&#xA;" VerticalAlignment="Top" Margin="0,68,0,0" Click="LoadButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
                     <TextBlock x:Name="FirstNameText" Grid.Column="1" HorizontalAlignment="Left" Margin="45,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox x:Name="TestStatus" HorizontalAlignment="Center" Margin="0,235,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="39"/>
+                    <TextBox x:Name="TestStatus" HorizontalAlignment="Center" Margin="0,207,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="48"/>
                     <Button x:Name="UpdateButton" Content="&#xD;&#xA;Update&#xD;&#xA;" VerticalAlignment="Top" Margin="0,128,0,0" Click="UpdateButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
                     <ListView
                         Name="EmployeeEmails" Background="White" ItemClick="Employees_ItemClick" SelectionMode="Single" IsItemClickEnabled="True" Grid.Column="1" Margin="568,0,346,10">
                         <ListViewHeaderItem Content="   Select To Edit" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="181"/>
                     </ListView>
+                    <Button x:Name="RemoveButton" Content="&#xD;&#xA;Remove&#xA;" VerticalAlignment="Top" Margin="44,514,0,0" Click="RemoveButton_Click" HorizontalAlignment="Left" Height="52" Width="159" Grid.Column="1"/>
                 </Grid>
             </SplitView.Content>
         </SplitView>

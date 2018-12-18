@@ -30,22 +30,27 @@ namespace COMPE361_Project
 
         public async void displayEmployeeList()
         {
-            //get json into string
-            employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
-            string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-            JObject json = JObject.Parse(newFile);
+            try
+            {
+                //get json into string
+                employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+                string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject json = JObject.Parse(newFile);
 
-            //access employees
-            JArray employeeList = (JArray)json["employees"];
+                //access employees
+                JArray employeeList = (JArray)json["employees"];
 
-            List<string> employees = JsonConvert.DeserializeObject<List<string>>(employeeList.ToString());
-       
-            for(int i = 0; i < employees.Count; i ++) {
-                Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"]});
-                EmployeeEmails.Items.Add(new ListViewItem { Content = employees[i], Tag = "test" });
-                
+                List<string> employees = JsonConvert.DeserializeObject<List<string>>(employeeList.ToString());
 
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    Employees.Items.Add(new ListViewItem { Content = (string)json[employees[i]]["FirstName"] + " " + (string)json[employees[i]]["LastName"] });
+                    EmployeeEmails.Items.Add(new ListViewItem { Content = employees[i], Tag = "test" });
+
+
+                }
             }
+            catch { TestStatus.Text = "Click Update again"; }
 
         }
 
@@ -76,6 +81,7 @@ namespace COMPE361_Project
 
                 //add employee email to list
                 employeeList.Add(username);
+                
 
                 //update json
                 await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());
@@ -164,16 +170,27 @@ namespace COMPE361_Project
             employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
             string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
             JObject json = JObject.Parse(newFile);
+            try
+            {
+                //access employees
+                json[email]["FirstName"] = FirstName.Text;
+                json[email]["LastName"] = LastName.Text;
+                json[email]["CellNumber"] = PhoneNumber.Text;
+                json[email]["Address"] = Address.Text;
+                json[email]["employeeType"] = EmpType.Text;
+                //Dont Do this
+                // json[email]["EmailAddress"] = Username.Text; 
+                // json[email]["IsAdmin"] = isAdmin.Text;
+            }
+            catch {
+                FirstName.Text = "";
+                LastName.Text = "";
+                Username.Text = "";
+                PhoneNumber.Text = "";
+                Address.Text = "";
+                TestStatus.Text = "UPDATED!!!";
 
-            //access employees
-            json[email]["FirstName"] = FirstName.Text;
-            json[email]["LastName"] = LastName.Text;
-            json[email]["CellNumber"] = PhoneNumber.Text;
-            json[email]["Address"] = Address.Text;
-            json[email]["employeeType"] = EmpType.Text;
-            //Dont Do this
-            // json[email]["EmailAddress"] = Username.Text; 
-            // json[email]["IsAdmin"] = isAdmin.Text;
+            }
 
             //update json
             await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());
@@ -208,7 +225,20 @@ namespace COMPE361_Project
 
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            UpdateEmployee(Username.Text);
+            CheckIfEmployeeExists(Username.Text);
+            if (!employeeExists) TestStatus.Text = "CANNOT UPDATE - EMPLOYEE DOES NOT EXIST";
+            else { try {UpdateEmployee(Username.Text); }
+
+                catch {
+                    FirstName.Text = "";
+                    LastName.Text = "";
+                    Username.Text = "";
+                    PhoneNumber.Text = "";
+                    Address.Text = "";
+
+                    TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST"; }
+            }
+            
         }
 
         //Loads employee data
@@ -245,6 +275,39 @@ namespace COMPE361_Project
                 catch { TestStatus.Text = "ERROR - EMPLOYEE DOES NOT EXIST"; }
             }
         }
+
+        public async void RemoveEmployee(string username)
+        {
+            //Check if employee already exists
+            //If employee doesn't exist
+            
+                //get json into string
+                employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
+                string newFile = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
+                JObject json = JObject.Parse(newFile);
+
+                //access employees
+                json.Remove(username);
+                JArray employeeOldList = (JArray)json["employees"];
+                List<string> temp = employeeOldList.ToObject<List<string>>();
+                temp.Remove(username);
+                JArray employeeNewList = JArray.FromObject(temp);
+                json["employees"] = (JToken)employeeNewList;
+            
+                //var result = (JArray)json.Remove(username);
+
+
+                //json["employees"] = employeeNewList;
+
+
+            //update json
+            await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json.ToString());
+
+                //**Write Employee Successfully Added**
+                TestStatus.Text = "SUCCESS - EMPLOYEE REMOVED";
+
+
+        }
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
             {
 
@@ -280,12 +343,24 @@ namespace COMPE361_Project
 
         }
 
+        private void RemoveButton_Click(object sender, RoutedEventArgs e) {
+
+            string test = Username.Text;
+            RemoveEmployee(Username.Text);
+            Employees.Items.Clear();
+            Employees.Header = "Employees";
+            EmployeeEmails.Items.Clear();
+            EmployeeEmails.Header = "Select To Edit";
+            displayEmployeeList();
+        }
+
 
         private async void Employees_ItemClick(object sender, ItemClickEventArgs e) {
             string email = "";
 
             if (e.ClickedItem.ToString() != "Windows.UI.Xaml.Controls.ListViewHeaderItem")
             {
+                try { 
                 email = e.ClickedItem.ToString();
                 string employeeListString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
                 JObject employeeList = JObject.Parse(employeeListString);
@@ -304,7 +379,8 @@ namespace COMPE361_Project
                 Username.Text = foundEmployee.EmailAddress;
                 PhoneNumber.Text = foundEmployee.CellNumber;
                 Address.Text = foundEmployee.Address;
-
+                }
+                catch { TestStatus.Text = "Employee Does Not Exist. Click UPDATE"; }
 
             }
 
