@@ -41,10 +41,10 @@
                     <TextBox x:Name="LastName" Grid.Column="1" HorizontalAlignment="Left" Margin="173,79,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
                     <TextBox x:Name="PhoneNumber" Grid.Column="1" HorizontalAlignment="Left" Margin="173,145,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
                     <TextBox x:Name="Address" Grid.Column="1" HorizontalAlignment="Left" Margin="173,185,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="49"/>
-                    <TextBox x:Name="EmpType" Grid.Column="1" HorizontalAlignment="Left" Margin="173,267,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
-                    <Button x:Name="LoadButton" Content="&#xD;&#xA;Load Employee Info&#xD;&#xA;" VerticalAlignment="Top" Margin="0,68,0,0" Click="LoadButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
+                    <TextBox x:Name="EmpType" Visibility="Collapsed" Grid.Column="1" HorizontalAlignment="Left" Margin="173,267,0,0" Text="" VerticalAlignment="Top" Width="137" Height="32"/>
+                    <Button x:Name="LoadButton" Visibility="Collapsed" Content="&#xD;&#xA;Load Employee Info&#xD;&#xA;" VerticalAlignment="Top" Margin="0,68,0,0" Click="LoadButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
                     <TextBlock x:Name="FirstNameText" Grid.Column="1" HorizontalAlignment="Left" Margin="45,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="75"><Run Text="First Name:"/><LineBreak/><Run/></TextBlock>
-                    <TextBox x:Name="TestStatus" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,207,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="48"/>
+                    <TextBox x:Name="TestStatus" Visibility="Collapsed" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,207,0,0" Text="" VerticalAlignment="Top" Width="Auto" Height="48"/>
                     <Button x:Name="UpdateButton" Content="&#xD;&#xA;Update&#xD;&#xA;" VerticalAlignment="Top" Margin="0,128,0,0" Click="UpdateButton_Click" HorizontalAlignment="Center" Height="52" Width="159"/>
                     <CheckBox Grid.Column="1" Name="AdminCheck" Click="AdminClick" Content="Admin" Margin="200,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="89"/>
                     <CheckBox Grid.Column="1" Name="ManagerCheck" Click="ManagerClick" Content="Manager" Margin="358,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>

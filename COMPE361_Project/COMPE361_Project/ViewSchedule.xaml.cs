@@ -38,10 +38,15 @@ namespace COMPE361_Project
             var currentEmployee = (ProgramParams)e.Parameter;
 
             receivedEmployee = currentEmployee.FoundEmployee;
-
-            for (int i = 0; i < receivedEmployee.ScheduleStart.Length; i++)
+            try
             {
-                EmployeeSchedule.Items.Add(new ListViewItem { Content = receivedEmployee.ScheduleDate[i] + " " + receivedEmployee.ScheduleStart[i] + " " + receivedEmployee.ScheduleEnd[i] + '\n' });
+                for (int i = 0; i < receivedEmployee.ScheduleStart.Length; i++)
+                {
+                    EmployeeSchedule.Items.Add(new ListViewItem { Content = receivedEmployee.ScheduleDate[i] + " " + receivedEmployee.ScheduleStart[i] + " " + receivedEmployee.ScheduleEnd[i] + '\n' });
+                }
+            }
+            catch {
+                EmployeeSchedule.Items.Add(new ListViewItem { Content = "No schedule found." });
             }
         }
     }

@@ -38,6 +38,7 @@ namespace COMPE361_Project
             {
                 EmployeeScheduleList.Items.Add(new ListViewItem { Content = names[i] });
             }
+            DateSelector.MinDate = DateTime.Today;
         }
         public string selectedEmployee = "";
         public EditSchedule()

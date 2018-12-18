@@ -10,6 +10,6 @@
     <Grid>
         <ListView Name="EmployeeSchedule" HorizontalAlignment="Center" Height="718" VerticalAlignment="Top" Width="1236" Margin="0,166,0,0" SelectionMode="None" IsItemClickEnabled="False" Background="White">
         </ListView>
-        <TextBox x:Name="ScheduleTitle" Background="White" Text="Schedule" Margin="601,35,601,886" IsReadOnly="True" TextAlignment="Center" FontSize="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <TextBox x:Name="ScheduleTitle" Background="White" Text="Schedule" Margin="105,35,625,886" IsReadOnly="True" TextAlignment="Center" FontSize="48"/>
     </Grid>
 </Page>

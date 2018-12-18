@@ -55,9 +55,14 @@ namespace COMPE361_Project
                 {
                     { employee.FoundEmployee.EmailAddress, employee.FoundEmployee }
                 };
+                string[] employees = new string[1] { employee.FoundEmployee.EmailAddress };
+                string tempJson = $"{{ \"employees\": [], "; //"\"{employee.FoundEmployee.EmailAddress}\"], ";
                 string employeeString = JsonConvert.SerializeObject(tempEmployee, Formatting.Indented);
+                employeeString = employeeString.Remove(0, 1);
+                string json = $"{tempJson} {employeeString}";
+
                 employeeFile = await storageFolder.CreateFileAsync("testEmployeeFileWrite.json", Windows.Storage.CreationCollisionOption.OpenIfExists);
-                await Windows.Storage.FileIO.WriteTextAsync(employeeFile, employeeString);
+                await Windows.Storage.FileIO.WriteTextAsync(employeeFile, json);//employeeString);
                 this.Frame.Navigate(typeof(PayrollSystem), employee);
             }
         }

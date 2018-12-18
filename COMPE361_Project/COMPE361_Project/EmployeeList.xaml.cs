@@ -24,9 +24,7 @@ namespace COMPE361_Project
 
             activeEmployee = currentEmployee.FoundEmployee;
 
-            
 
-            //Schedule.Items.Add(new ListViewItem { Content =  });
         }
         private void AdminClick(object sender, RoutedEventArgs e)
         {
