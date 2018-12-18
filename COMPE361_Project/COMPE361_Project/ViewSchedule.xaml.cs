@@ -29,6 +29,17 @@ namespace COMPE361_Project
         {
             this.InitializeComponent();
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var currentEmployee = (ProgramParams)e.Parameter;
+
+            activeEmployee = currentEmployee.FoundEmployee;
+        }
+        Employee activeEmployee = new Employee();
+
         Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
         Windows.Storage.StorageFile employeeFile;
         private async void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
@@ -40,10 +51,12 @@ namespace COMPE361_Project
 
             ReadFile();
 
+            CalendarViewDayItem dayStatus = new CalendarViewDayItem();
+
             //Deserialize from json
             string employeeScheduleString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
             JObject scheduleChecker = JObject.Parse(employeeScheduleString);
-            JArray schedules = (JArray)scheduleChecker["albertrafou@gmail.com"]["Schedule"];
+            JArray schedules = (JArray)scheduleChecker[activeEmployee.EmailAddress]["Schedule"];
             List<string> employeeSchedule = JsonConvert.DeserializeObject<List<string>>(schedules.ToString());
 
 
