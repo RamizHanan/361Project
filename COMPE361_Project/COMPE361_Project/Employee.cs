@@ -13,7 +13,7 @@ namespace COMPE361_Project
     public class Employee : IComparable<Employee>
 
     {
-        public Employee(string firstName = null, string lastName = null, string emailAddress = null, string cellNumber = null, string address = null, bool admin = false, bool manager = false, string[] clockin = default(string[]))
+        public Employee(string firstName = null, string lastName = null, string emailAddress = null, string cellNumber = null, string address = null, bool admin = false, bool manager = false)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -22,7 +22,13 @@ namespace COMPE361_Project
             Address = address;
             IsAdmin = admin;
             IsManager = manager;
-            ClockIn = clockin;
+            ClockIn = new string[1];
+            ClockOut = new string[1];
+            LunchIn = new string[1];
+            LunchOut = new string[1];
+            ScheduleStart = new string[1];
+            ScheduleEnd = new string[1];
+            ScheduleDate = new string[1];
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -37,6 +43,9 @@ namespace COMPE361_Project
         public string[] ClockOut { get; set; }
         public string[] LunchIn { get; set; }
         public string[] LunchOut { get; set; }
+        public string[] ScheduleStart { get; set; }
+        public string[] ScheduleEnd { get; set; }
+        public string[] ScheduleDate { get; set; }
 
         public override string ToString()
         {
