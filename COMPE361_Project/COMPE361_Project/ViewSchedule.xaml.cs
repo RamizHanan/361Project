@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
-using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,58 +24,30 @@ namespace COMPE361_Project
     /// </summary>
     public sealed partial class ViewSchedule : Page
     {
+        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        Windows.Storage.StorageFile employeeFile;
+        public Employee receivedEmployee;
         public ViewSchedule()
         {
             this.InitializeComponent();
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             var currentEmployee = (ProgramParams)e.Parameter;
 
-            activeEmployee = currentEmployee.FoundEmployee;
-        }
-        Employee activeEmployee = new Employee();
-
-        Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-        Windows.Storage.StorageFile employeeFile;
-        private async void Display_Schedule(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs e)
-        {
-            //retreives selected date and converts to string in order to view schedule for that day
-            var myDate = e.AddedDates.First();
-            string selectedDate = myDate.ToString();
-            string truncatedSelectedDate = new string(selectedDate.Take(10).ToArray());
-
-            ReadFile();
-
-            //Deserialize from json
-            string employeeScheduleString = await Windows.Storage.FileIO.ReadTextAsync(employeeFile);
-            JObject scheduleChecker = JObject.Parse(employeeScheduleString);
-            JArray schedules = (JArray)scheduleChecker[activeEmployee.EmailAddress]["Schedule"];
-            List<string> employeeSchedule = JsonConvert.DeserializeObject<List<string>>(schedules.ToString());
-
-
-            //search for selected date within json
-            for (int i = 0; i < employeeSchedule.Count; i++)
+            receivedEmployee = currentEmployee.FoundEmployee;
+            try
             {
-                if (employeeSchedule[i].Contains(truncatedSelectedDate))
+                for (int i = 0; i < receivedEmployee.ScheduleStart.Length; i++)
                 {
-                    Schedule.Items.Add(new ListViewItem { Content = $"{employeeSchedule[i]}" });
-                    break;
-                }
-                else if (i == employeeSchedule.Count - 1)
-                {
-                    Schedule.Items.Add(new ListViewItem { Content = "Not working" });
+                    EmployeeSchedule.Items.Add(new ListViewItem { Content = receivedEmployee.ScheduleDate[i] + " " + receivedEmployee.ScheduleStart[i] + " " + receivedEmployee.ScheduleEnd[i] + '\n' });
                 }
             }
-        }
-
-
-            public async void ReadFile()
-        {
-            employeeFile = await storageFolder.GetFileAsync("testEmployeeFileWrite.json");
+            catch {
+                EmployeeSchedule.Items.Add(new ListViewItem { Content = "No schedule found." });
+            }
         }
     }
 }

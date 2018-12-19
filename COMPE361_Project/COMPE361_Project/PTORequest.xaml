@@ -13,8 +13,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Image Source="Assets/background2.jpg" Stretch="UniformToFill" Grid.ColumnSpan="2"/>
-        <CalendarView Name="DateSelector" SelectionMode="Multiple" SelectedDatesChanged="DateSelected" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="100,115,100,115"/>
-        <Grid Background="White" Grid.Column="1" Margin="100,0,100,339">
+        <CalendarView Name="DateSelector" SelectionMode="Multiple" SelectedDatesChanged="DateSelected" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="84,179,317.4,349"/>
+        <Grid Background="White" Margin="493,66,554,278" Grid.ColumnSpan="2">
             <TextBlock Text="Dates Selected" FontSize="36" Margin="0,10,0,0" HorizontalAlignment="Center" FontWeight="Bold" TextDecorations="Underline" Height="48" VerticalAlignment="Top"/>
             <ListView Name="DatesRequestedBox" MaxHeight="145" FontSize="36" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="11,75,11,0" BorderThickness="2,2,2,2" BorderBrush="Black" Height="144"/>
             <TextBlock Text="Reason:" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Top" Height="48" Margin="0,335,0,0"/>
@@ -23,7 +23,7 @@
             <Button Content="Clear Selection" Click="Clear" FontSize="36" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Width="291" Height="64"/>
             <TextBlock Name="Status" HorizontalAlignment="Center" Margin="0,613,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" FontSize="14"/>
         </Grid>
-        <Grid Grid.Column="1" Background="White" Margin="10,661,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid Grid.Column="1" Background="White" Margin="251.6,206,30,304">
             <TextBlock Text="Active Requests" FontWeight="Normal" FontSize="36" TextDecorations="Underline" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0"/>
             <ListView Name="Requests" BorderBrush="Black" BorderThickness="2,2,2,2" Margin="0,63,0,0"/>
         </Grid>
